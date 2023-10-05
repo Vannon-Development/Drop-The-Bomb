@@ -1,0 +1,134 @@
+[gd_scene load_steps=17 format=3 uid="uid://bhtmvw5m7pa1h"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_px6td"]
+[ext_resource type="Texture2D" uid="uid://3gcvi051vj53" path="res://Sprites/Player-Side.png" id="2_pm1at"]
+[ext_resource type="Texture2D" uid="uid://71el764sg1iy" path="res://Sprites/Player-Down.png" id="3_2wpd0"]
+[ext_resource type="Texture2D" uid="uid://vquguaab7ori" path="res://Sprites/Player-Up.png" id="4_lsxmd"]
+[ext_resource type="Texture2D" uid="uid://5dva0q05d2cq" path="res://Sprites/Player-Walk-Side-01.png" id="5_exk11"]
+[ext_resource type="Texture2D" uid="uid://dtcwn5d4wv4k7" path="res://Sprites/Player-Walk-Side-02.png" id="6_l2ula"]
+[ext_resource type="Texture2D" uid="uid://jabvsv8lun6q" path="res://Sprites/Player-Walk-Up-01.png" id="7_u8gp5"]
+[ext_resource type="Texture2D" uid="uid://q0jklfdwecnw" path="res://Sprites/Player-Walk-Up-02.png" id="8_0grup"]
+[ext_resource type="Texture2D" uid="uid://d2eyv3xdhaii6" path="res://Sprites/Player-Walk-Down-01.png" id="9_3pxx8"]
+[ext_resource type="Texture2D" uid="uid://dxfvqmhu4c37g" path="res://Sprites/Player-Walk-Down-02.png" id="10_cxvom"]
+[ext_resource type="Script" path="res://Scripts/player_hit.gd" id="11_8g8oh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yjdoy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_exk11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_l2ula")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6dsc5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_u8gp5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0grup")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xl2ip"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_3pxx8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_cxvom")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jeq1w"]
+radius = 62.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypoiq"]
+size = Vector2(78, 115)
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("visuals")]
+z_index = 50
+collision_mask = 62
+motion_mode = 1
+script = ExtResource("1_px6td")
+walk_speed = 2.0
+visuals = [NodePath("Visual/Left"), NodePath("Visual/Right"), NodePath("Visual/Up"), NodePath("Visual/Down"), NodePath("Visual/Walk Left"), NodePath("Visual/Walk Right"), NodePath("Visual/Walk Up"), NodePath("Visual/Walk Down")]
+
+[node name="Visual" type="Node2D" parent="."]
+
+[node name="Right" type="Sprite2D" parent="Visual"]
+visibility_layer = 4
+position = Vector2(0, -1)
+texture = ExtResource("2_pm1at")
+
+[node name="Down" type="Sprite2D" parent="Visual"]
+visible = false
+visibility_layer = 4
+position = Vector2(0, -1)
+texture = ExtResource("3_2wpd0")
+
+[node name="Up" type="Sprite2D" parent="Visual"]
+visible = false
+visibility_layer = 4
+position = Vector2(0, -1)
+texture = ExtResource("4_lsxmd")
+
+[node name="Left" type="Sprite2D" parent="Visual"]
+visible = false
+visibility_layer = 4
+position = Vector2(0, -1)
+scale = Vector2(-1, 1)
+texture = ExtResource("2_pm1at")
+
+[node name="Walk Right" type="AnimatedSprite2D" parent="Visual"]
+visible = false
+visibility_layer = 4
+sprite_frames = SubResource("SpriteFrames_yjdoy")
+frame_progress = 0.0234954
+
+[node name="Walk Left" type="AnimatedSprite2D" parent="Visual"]
+visible = false
+visibility_layer = 4
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_yjdoy")
+frame_progress = 0.0761926
+
+[node name="Walk Up" type="AnimatedSprite2D" parent="Visual"]
+visible = false
+visibility_layer = 4
+sprite_frames = SubResource("SpriteFrames_6dsc5")
+frame_progress = 0.68358
+
+[node name="Walk Down" type="AnimatedSprite2D" parent="Visual"]
+visible = false
+visibility_layer = 4
+sprite_frames = SubResource("SpriteFrames_xl2ip")
+frame_progress = 0.890773
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jeq1w")
+
+[node name="BombHit" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 0
+monitoring = false
+script = ExtResource("11_8g8oh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BombHit"]
+shape = SubResource("RectangleShape2D_ypoiq")
+
+[connection signal="hit" from="BombHit" to="." method="_on_bomb_hit"]

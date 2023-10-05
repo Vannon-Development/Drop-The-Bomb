@@ -1,0 +1,55 @@
+[gd_scene load_steps=11 format=3 uid="uid://bvce3a2k1t8ug"]
+
+[ext_resource type="Script" path="res://Scripts/box.gd" id="1_jil3m"]
+[ext_resource type="Texture2D" uid="uid://gheecmn6nm6x" path="res://Sprites/Sprites_0000_Box.png" id="1_yixpu"]
+[ext_resource type="PackedScene" uid="uid://b425f7um0wnlj" path="res://Objects/crystal.tscn" id="2_3lspl"]
+[ext_resource type="Texture2D" uid="uid://c1m4gy8f51fe6" path="res://Sprites/Sprites_0000s_0000_Box-Explode-01.png" id="2_kshof"]
+[ext_resource type="Texture2D" uid="uid://bi2xpr6wdxwup" path="res://Sprites/Sprites_0000s_0001_Box-Explode-02.png" id="3_elxby"]
+[ext_resource type="Texture2D" uid="uid://dsacqvk0c5tlw" path="res://Sprites/Sprites_0000s_0002_Box-Explode-03.png" id="4_bc4pt"]
+[ext_resource type="Texture2D" uid="uid://b8seq1qjbswn4" path="res://Sprites/Sprites_0000s_0003_Box-Explode-04.png" id="5_b3fy8"]
+[ext_resource type="Texture2D" uid="uid://cq01hp52815tf" path="res://Sprites/Sprites_0000s_0004_Box-Explode-05.png" id="6_i874u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyo3y"]
+size = Vector2(126, 126)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5hx1l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kshof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_elxby")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bc4pt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_b3fy8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_i874u")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Box" type="StaticBody2D" node_paths=PackedStringArray("explode_visual", "visual")]
+collision_layer = 392
+collision_mask = 0
+script = ExtResource("1_jil3m")
+explode_visual = NodePath("Explode")
+visual = NodePath("Visual")
+crystal_template = ExtResource("2_3lspl")
+
+[node name="Visual" type="Sprite2D" parent="."]
+z_index = 4
+texture = ExtResource("1_yixpu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_eyo3y")
+
+[node name="Explode" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_5hx1l")

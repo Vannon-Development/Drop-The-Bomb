@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://2uauipu74hdb"]
+
+[ext_resource type="PackedScene" uid="uid://bvce3a2k1t8ug" path="res://Objects/box.tscn" id="2_ekgdo"]
+[ext_resource type="Script" path="res://Scripts/level.gd" id="2_pg57o"]
+[ext_resource type="PackedScene" uid="uid://bgjok3e7xwhre" path="res://Objects/floor_tile.tscn" id="3_iyf4l"]
+[ext_resource type="PackedScene" uid="uid://b61uy7h1cky5j" path="res://Objects/wall_tile.tscn" id="4_o4mgr"]
+
+[node name="Level" type="Node2D"]
+visibility_layer = 2
+script = ExtResource("2_pg57o")
+box_object = ExtResource("2_ekgdo")
+floor_object = ExtResource("3_iyf4l")
+wall_object = ExtResource("4_o4mgr")
+size = Vector2i(14, 6)
+box_fill = 0.25
+metadata/Size = Vector2i(14, 6)
+metadata/BoxFill = 0.25

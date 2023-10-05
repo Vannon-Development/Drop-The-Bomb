@@ -1,0 +1,71 @@
+[gd_scene load_steps=12 format=3 uid="uid://b00rsqkqln4un"]
+
+[ext_resource type="Script" path="res://Scripts/bat.gd" id="1_fqy28"]
+[ext_resource type="Texture2D" uid="uid://bb6njt22nj7aw" path="res://Sprites/Bat-01.png" id="2_jbeey"]
+[ext_resource type="Texture2D" uid="uid://dcv8w7uk1ve5b" path="res://Sprites/Bat-02.png" id="3_3x882"]
+[ext_resource type="Texture2D" uid="uid://bikkxdap4voxn" path="res://Sprites/Bat-Explode-01.png" id="4_v21uo"]
+[ext_resource type="Texture2D" uid="uid://dl25ccf5dymjr" path="res://Sprites/Bat-Explode-02.png" id="5_vlgd2"]
+[ext_resource type="Texture2D" uid="uid://h02a7cs4v52r" path="res://Sprites/Bat-Explode-03.png" id="6_4iogn"]
+[ext_resource type="Texture2D" uid="uid://c8y225isl2o7e" path="res://Sprites/Bat-Explode-04.png" id="7_ewh7d"]
+[ext_resource type="Texture2D" uid="uid://ccwwibhvsd8u8" path="res://Sprites/Bat-Explode-05.png" id="8_r3fol"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lirrl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jbeey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3x882")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f7i0x"]
+radius = 63.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r412a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_v21uo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vlgd2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4iogn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ewh7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_r3fol")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bat" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "explode")]
+z_index = 40
+collision_layer = 288
+collision_mask = 74
+motion_mode = 1
+script = ExtResource("1_fqy28")
+sprite = NodePath("Fly")
+explode = NodePath("Explode")
+speed = 1.0
+
+[node name="Fly" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lirrl")
+autoplay = "default"
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -6.5)
+shape = SubResource("CircleShape2D_f7i0x")
+
+[node name="Explode" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_r412a")

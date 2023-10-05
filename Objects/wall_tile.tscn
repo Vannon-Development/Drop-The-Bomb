@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b61uy7h1cky5j"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://drtwcar2c5hnq" path="res://Frictionless Material.tres" id="1_ae70r"]
+[ext_resource type="Texture2D" uid="uid://vko8lvt1wk0x" path="res://Sprites/Sprites_0000_Fill-Block.png" id="1_yg5ko"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3r7l1"]
+size = Vector2(128, 128)
+
+[node name="Wall Tile" type="StaticBody2D"]
+collision_layer = 130
+collision_mask = 0
+physics_material_override = ExtResource("1_ae70r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yg5ko")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3r7l1")

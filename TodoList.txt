@@ -1,0 +1,11 @@
+Game Over Screen
+Pause Screen
+Settings Screen (erase data)
+
+Red Bat/Fire Bat Enemy
+Crystal Enemy
+Door Enemy
+
+Remote I/II powerup
+Walk through Walls powerup
+Walk through Bombs powerup

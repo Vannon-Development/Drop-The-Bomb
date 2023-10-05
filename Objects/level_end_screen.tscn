@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwfgocxvsxxdh"]
+
+[ext_resource type="Script" path="res://Scripts/level_end_screen.gd" id="1_j7oe2"]
+[ext_resource type="FontFile" uid="uid://d4bo37ch4clwo" path="res://OhOkey-vm82O.ttf" id="1_oudbf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q1icj"]
+font = ExtResource("1_oudbf")
+font_size = 100
+font_color = Color(0.843137, 0.352941, 0.14902, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_74ooh"]
+font = ExtResource("1_oudbf")
+font_size = 64
+font_color = Color(0.843137, 0.352941, 0.14902, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Level End Screen" type="Node2D" node_paths=PackedStringArray("level_label", "boxes_label", "time_label")]
+z_index = 100
+script = ExtResource("1_j7oe2")
+level_label = NodePath("Level Label")
+boxes_label = NodePath("Boxes Count")
+time_label = NodePath("Time Count")
+
+[node name="Level Label" type="Label" parent="."]
+offset_top = 184.0
+offset_right = 1920.0
+offset_bottom = 288.0
+text = "Level 100 Complete!"
+label_settings = SubResource("LabelSettings_q1icj")
+horizontal_alignment = 1
+
+[node name="Boxes Static" type="Label" parent="."]
+offset_left = 200.0
+offset_top = 422.0
+offset_right = 796.0
+offset_bottom = 490.0
+text = "Boxes Destroyed:"
+label_settings = SubResource("LabelSettings_74ooh")
+
+[node name="Boxes Count" type="Label" parent="."]
+offset_left = 900.0
+offset_top = 422.0
+offset_right = 1031.0
+offset_bottom = 490.0
+text = "99%"
+label_settings = SubResource("LabelSettings_74ooh")
+
+[node name="Time Static" type="Label" parent="."]
+offset_left = 200.0
+offset_top = 534.0
+offset_right = 370.0
+offset_bottom = 602.0
+text = "Time:"
+label_settings = SubResource("LabelSettings_74ooh")
+
+[node name="Time Count" type="Label" parent="."]
+offset_left = 900.0
+offset_top = 534.0
+offset_right = 1315.0
+offset_bottom = 602.0
+text = "300 seconds"
+label_settings = SubResource("LabelSettings_74ooh")

@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://tdfqjn6gvmyp"]
+
+[ext_resource type="Script" path="res://Scripts/start_screen.gd" id="1_hp7bh"]
+[ext_resource type="Texture2D" uid="uid://eahyghcwbb1v" path="res://Sprites/Sprites_0001_Menu-Pointer.png" id="2_r4pwh"]
+[ext_resource type="FontFile" uid="uid://d4bo37ch4clwo" path="res://OhOkey-vm82O.ttf" id="3_i7gxd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gk2pe"]
+font = ExtResource("3_i7gxd")
+font_size = 200
+font_color = Color(0.843137, 0.352941, 0.14902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rhyq6"]
+font = ExtResource("3_i7gxd")
+font_size = 60
+font_color = Color(0.776471, 0.380392, 0.211765, 1)
+
+[node name="Start Screen" type="Node2D" node_paths=PackedStringArray("start_icon", "upgrade_icon")]
+script = ExtResource("1_hp7bh")
+start_icon = NodePath("Start Icon")
+upgrade_icon = NodePath("Upgrade Icon")
+
+[node name="BG Color" type="Polygon2D" parent="."]
+z_index = -1
+color = Color(0.25, 0.925, 1, 1)
+polygon = PackedVector2Array(1986, -36, -63, -39, -59, 1150, 1997, 1160)
+
+[node name="Start Icon" type="Sprite2D" parent="."]
+position = Vector2(892, 632)
+texture = ExtResource("2_r4pwh")
+
+[node name="Upgrade Icon" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(892, 751)
+texture = ExtResource("2_r4pwh")
+
+[node name="Title" type="Label" parent="."]
+offset_top = 146.0
+offset_right = 1920.0
+offset_bottom = 350.0
+text = "Drop The Bomb"
+label_settings = SubResource("LabelSettings_gk2pe")
+horizontal_alignment = 1
+
+[node name="Start" type="Label" parent="."]
+offset_left = 953.0
+offset_top = 612.0
+offset_right = 1138.0
+offset_bottom = 676.0
+text = "Start"
+label_settings = SubResource("LabelSettings_rhyq6")
+
+[node name="Upgrade" type="Label" parent="."]
+offset_left = 953.0
+offset_top = 726.0
+offset_right = 1243.0
+offset_bottom = 790.0
+text = "Upgrade"
+label_settings = SubResource("LabelSettings_rhyq6")

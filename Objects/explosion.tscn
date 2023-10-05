@@ -1,0 +1,133 @@
+[gd_scene load_steps=21 format=3 uid="uid://dysgab2ychx4q"]
+
+[ext_resource type="Script" path="res://Scripts/explosion.gd" id="1_bas66"]
+[ext_resource type="Texture2D" uid="uid://cbe77ypyu7rpb" path="res://Sprites/Sprites_0003s_0000_Bomb-Center-01.png" id="2_0wwd3"]
+[ext_resource type="Texture2D" uid="uid://ddx5wka2rtf6s" path="res://Sprites/Sprites_0003s_0001_Bomb-Center-02.png" id="3_fb3sj"]
+[ext_resource type="Texture2D" uid="uid://blv2texpxwmxf" path="res://Sprites/Sprites_0003s_0002_Bomb-Center-03.png" id="4_7q05u"]
+[ext_resource type="Texture2D" uid="uid://c1js0gyuc4rbo" path="res://Sprites/Sprites_0003s_0003_Bomb-Center-04.png" id="5_v7irt"]
+[ext_resource type="Texture2D" uid="uid://dtkh2xrah3ikq" path="res://Sprites/Sprites_0003s_0004_Bomb-Center-05.png" id="6_mgi4l"]
+[ext_resource type="Texture2D" uid="uid://dswyigudyp2ju" path="res://Sprites/Sprites_0002s_0000_Bomb-Fill-01.png" id="7_tl2ks"]
+[ext_resource type="Texture2D" uid="uid://ddpkhh25p4pip" path="res://Sprites/Sprites_0002s_0001_Bomb-Fill-02.png" id="8_mrguh"]
+[ext_resource type="Texture2D" uid="uid://eye1plhftdfh" path="res://Sprites/Sprites_0002s_0002_Bomb-Fill-03.png" id="9_1vx0s"]
+[ext_resource type="Texture2D" uid="uid://bpajsh44vk3hh" path="res://Sprites/Sprites_0002s_0003_Bomb-Fill-04.png" id="10_dlyjf"]
+[ext_resource type="Texture2D" uid="uid://bg5ixu6o0hs0n" path="res://Sprites/Sprites_0002s_0004_Bomb-Fill-05.png" id="11_p33h7"]
+[ext_resource type="Texture2D" uid="uid://c3ai4ogexbf2d" path="res://Sprites/Sprites_0001s_0000_Bomb-End-01.png" id="12_b2hmo"]
+[ext_resource type="Texture2D" uid="uid://cua1g13csdcag" path="res://Sprites/Sprites_0001s_0001_Bomb-End-02.png" id="13_f5chn"]
+[ext_resource type="Texture2D" uid="uid://f2quov0us8s3" path="res://Sprites/Sprites_0001s_0002_Bomb-End-03.png" id="14_eo4em"]
+[ext_resource type="Texture2D" uid="uid://c6l3ty4mid5op" path="res://Sprites/Sprites_0001s_0003_Bomb-End-04.png" id="15_vhyuf"]
+[ext_resource type="Texture2D" uid="uid://b4vf1u636cth1" path="res://Sprites/Sprites_0001s_0004_Bomb-End-05.png" id="16_ky4rm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vng2e"]
+size = Vector2(126, 126)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lai2l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_tl2ks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mrguh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1vx0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_dlyjf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_p33h7")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ylkoy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_b2hmo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_f5chn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_eo4em")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_vhyuf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ky4rm")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ccry3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0wwd3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fb3sj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7q05u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_v7irt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mgi4l")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Explosion" type="Area2D" node_paths=PackedStringArray("fill", "end", "center_animation")]
+z_index = 20
+collision_layer = 16
+collision_mask = 384
+script = ExtResource("1_bas66")
+fill = NodePath("Fill")
+end = NodePath("End")
+timer = 0.625
+center_animation = NodePath("Block Center/Center/Ani")
+
+[node name="Fill" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_vng2e")
+
+[node name="Ani" type="AnimatedSprite2D" parent="Fill"]
+sprite_frames = SubResource("SpriteFrames_lai2l")
+autoplay = "default"
+
+[node name="End" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_vng2e")
+
+[node name="Ani" type="AnimatedSprite2D" parent="End"]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_ylkoy")
+autoplay = "default"
+
+[node name="Block Center" type="Area2D" parent="."]
+collision_layer = 144
+collision_mask = 0
+monitoring = false
+
+[node name="Center" type="CollisionShape2D" parent="Block Center"]
+shape = SubResource("RectangleShape2D_vng2e")
+
+[node name="Ani" type="AnimatedSprite2D" parent="Block Center/Center"]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_ccry3")
+autoplay = "default"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

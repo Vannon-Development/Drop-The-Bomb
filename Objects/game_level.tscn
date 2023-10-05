@@ -1,0 +1,37 @@
+[gd_scene load_steps=10 format=3 uid="uid://ctl0k24sevxx4"]
+
+[ext_resource type="PackedScene" uid="uid://2uauipu74hdb" path="res://Objects/level.tscn" id="1_iu3w2"]
+[ext_resource type="Script" path="res://Scripts/game_scene.gd" id="1_lnyyb"]
+[ext_resource type="PackedScene" uid="uid://b41d2qkmxyraw" path="res://Objects/bomb.tscn" id="2_4g1mr"]
+[ext_resource type="PackedScene" uid="uid://bhtmvw5m7pa1h" path="res://Objects/player.tscn" id="2_uyxrb"]
+[ext_resource type="PackedScene" uid="uid://dysgab2ychx4q" path="res://Objects/explosion.tscn" id="3_ex5qg"]
+[ext_resource type="Script" path="res://Scripts/player_camera.gd" id="3_sp57n"]
+[ext_resource type="PackedScene" uid="uid://dxeo3mfeyn65s" path="res://Objects/door.tscn" id="4_14hpo"]
+[ext_resource type="PackedScene" uid="uid://b425f7um0wnlj" path="res://Objects/crystal.tscn" id="5_lv367"]
+[ext_resource type="PackedScene" uid="uid://bsd6brcohd4i6" path="res://Objects/level_display.tscn" id="6_ybxkw"]
+
+[node name="GameLevel" type="Node2D" node_paths=PackedStringArray("level_map", "player", "camera")]
+script = ExtResource("1_lnyyb")
+level = 1
+level_map = NodePath("Level")
+player = NodePath("Player")
+camera = NodePath("Camera2D")
+bomb_object = ExtResource("2_4g1mr")
+explosion_object = ExtResource("3_ex5qg")
+door_object = ExtResource("4_14hpo")
+crystal_object = ExtResource("5_lv367")
+level_display = ExtResource("6_ybxkw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+script = ExtResource("3_sp57n")
+
+[node name="Player" parent="." instance=ExtResource("2_uyxrb")]
+
+[node name="Level" parent="." instance=ExtResource("1_iu3w2")]
+
+[connection signal="drop_bomb" from="Player" to="." method="_on_drop_bomb"]
+[connection signal="game_lost" from="Player" to="." method="_on_game_lost"]
+[connection signal="position_changed" from="Player" to="Camera2D" method="_on_player_position_changed"]
+[connection signal="door_exposed" from="Level" to="." method="_on_level_door_exposed"]
+[connection signal="set_bounds" from="Level" to="Camera2D" method="_on_level_set_bounds"]

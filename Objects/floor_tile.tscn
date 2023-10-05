@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgjok3e7xwhre"]
+
+[ext_resource type="Texture2D" uid="uid://cm6qsd7n63ksm" path="res://Sprites/Sprites_0001_Walk-Block.png" id="1_il1hs"]
+
+[node name="Floor Tile" type="Sprite2D"]
+texture = ExtResource("1_il1hs")

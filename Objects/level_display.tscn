@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsd6brcohd4i6"]
+
+[ext_resource type="FontFile" uid="uid://d4bo37ch4clwo" path="res://OhOkey-vm82O.ttf" id="1_0i5n5"]
+[ext_resource type="Script" path="res://Scripts/level_display.gd" id="1_860c4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_18574"]
+font = ExtResource("1_0i5n5")
+font_size = 100
+font_color = Color(0.843137, 0.352941, 0.14902, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Level Display" type="Node2D" node_paths=PackedStringArray("label")]
+z_index = 100
+script = ExtResource("1_860c4")
+label = NodePath("Label")
+timer = 3.0
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+text = "Level 99"
+label_settings = SubResource("LabelSettings_18574")
+horizontal_alignment = 1
+vertical_alignment = 1
