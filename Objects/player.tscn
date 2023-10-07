@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bhtmvw5m7pa1h"]
+[gd_scene load_steps=26 format=3 uid="uid://bhtmvw5m7pa1h"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_px6td"]
 [ext_resource type="Texture2D" uid="uid://3gcvi051vj53" path="res://Sprites/Player-Side.png" id="2_pm1at"]
@@ -11,6 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://d2eyv3xdhaii6" path="res://Sprites/Player-Walk-Down-01.png" id="9_3pxx8"]
 [ext_resource type="Texture2D" uid="uid://dxfvqmhu4c37g" path="res://Sprites/Player-Walk-Down-02.png" id="10_cxvom"]
 [ext_resource type="Script" path="res://Scripts/player_hit.gd" id="11_8g8oh"]
+[ext_resource type="Texture2D" uid="uid://dy5yhijg6ttwd" path="res://Sprites/Player-Die-01.png" id="12_ilw3r"]
+[ext_resource type="Texture2D" uid="uid://bki5733kodr2i" path="res://Sprites/Player-Die-02.png" id="13_fpy7m"]
+[ext_resource type="Texture2D" uid="uid://dppjdvr7sk00q" path="res://Sprites/Player-Die-03.png" id="14_4237k"]
+[ext_resource type="Texture2D" uid="uid://dj048m4n0ehtk" path="res://Sprites/Player-Die-04.png" id="15_02dnh"]
+[ext_resource type="Texture2D" uid="uid://cwd862q7ydgrr" path="res://Sprites/Player-Die-05.png" id="16_w6w71"]
+[ext_resource type="Texture2D" uid="uid://cmdtqfi67ffhs" path="res://Sprites/Player-Die-06.png" id="17_uyau5"]
+[ext_resource type="Texture2D" uid="uid://b2uft0keqa73g" path="res://Sprites/Player-Die-07.png" id="18_lmhtj"]
+[ext_resource type="Texture2D" uid="uid://ceinthl4a7kn1" path="res://Sprites/Player-Die-08.png" id="19_ynm2v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yjdoy"]
 animations = [{
@@ -60,13 +68,46 @@ radius = 62.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ypoiq"]
 size = Vector2(78, 115)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("visuals")]
+[sub_resource type="SpriteFrames" id="SpriteFrames_121sf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_ilw3r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_fpy7m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_4237k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_02dnh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_w6w71")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_uyau5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_lmhtj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ynm2v")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("visuals", "death")]
 z_index = 50
 collision_mask = 62
 motion_mode = 1
 script = ExtResource("1_px6td")
 walk_speed = 2.0
 visuals = [NodePath("Visual/Left"), NodePath("Visual/Right"), NodePath("Visual/Up"), NodePath("Visual/Down"), NodePath("Visual/Walk Left"), NodePath("Visual/Walk Right"), NodePath("Visual/Walk Up"), NodePath("Visual/Walk Down")]
+death = NodePath("Death")
 
 [node name="Visual" type="Node2D" parent="."]
 
@@ -130,5 +171,10 @@ script = ExtResource("11_8g8oh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BombHit"]
 shape = SubResource("RectangleShape2D_ypoiq")
+
+[node name="Death" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_121sf")
+frame_progress = 0.972798
 
 [connection signal="hit" from="BombHit" to="." method="_on_bomb_hit"]

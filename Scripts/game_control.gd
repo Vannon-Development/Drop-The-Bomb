@@ -3,6 +3,8 @@ extends Node
 signal on_pause
 signal on_resume(delta: int)
 
+var total_crystals: int
+
 var _paused: bool = false
 var _pause_time: int
 
@@ -20,3 +22,7 @@ func reset():
 
 func is_paused():
 	return _paused
+
+func start_game():
+	total_crystals = 0
+	_paused = false

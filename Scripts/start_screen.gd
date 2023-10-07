@@ -7,12 +7,14 @@ enum selection {start, upgrade}
 
 var _start: bool = false
 var _selection: selection = selection.start
+var _delay: int
 
 func _ready():
 	Data.load_data()
+	_delay = Time.get_ticks_msec() + 500
 
 func _process(_delta):
-	if Input.is_action_just_pressed("Game Start") && !_start:
+	if Input.is_action_just_pressed("Game Start") && !_start && Time.get_ticks_msec() > _delay:
 		if _selection == selection.start: _start_game()
 		elif _selection == selection.upgrade: _upgrade()
 	
@@ -33,6 +35,7 @@ func _start_game():
 	var obj = game.instantiate()
 	get_parent().add_child(obj)
 	_start = true
+	GameControl.start_game()
 	queue_free()
 
 func _upgrade():

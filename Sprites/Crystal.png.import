@@ -16,5 +16,5 @@ dest_files=["res://.godot/imported/Crystal.png-6c553e29b060edb39b87eac8c1020f18.
 
 atlas_file="res://sprites.png"
 import_mode=0
-crop_to_region=false
+crop_to_region=true
 trim_alpha_border_from_region=true

@@ -31,7 +31,7 @@ script = ExtResource("3_sp57n")
 [node name="Level" parent="." instance=ExtResource("1_iu3w2")]
 
 [connection signal="drop_bomb" from="Player" to="." method="_on_drop_bomb"]
-[connection signal="game_lost" from="Player" to="." method="_on_game_lost"]
+[connection signal="game_lost" from="Player" to="." method="_game_over_sequence"]
 [connection signal="position_changed" from="Player" to="Camera2D" method="_on_player_position_changed"]
 [connection signal="door_exposed" from="Level" to="." method="_on_level_door_exposed"]
 [connection signal="set_bounds" from="Level" to="Camera2D" method="_on_level_set_bounds"]

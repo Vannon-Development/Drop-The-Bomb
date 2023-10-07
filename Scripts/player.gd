@@ -6,13 +6,15 @@ signal game_lost
 
 @export var walk_speed: float
 @export var visuals: Array[Node2D]
+@export var death: AnimatedSprite2D
 
-const _tile_size = 128
+const _tile_size: int = 128
 
 enum motions { left, right, up, down, walk_left, walk_right, walk_up, walk_down }
 
 var _direction: motions
 var _saved_walk_speed: float
+var _dead: bool = false
 
 func _ready():
 	var startPos = _tile_size * 1.5
@@ -23,23 +25,25 @@ func _ready():
 	GameControl.on_resume.connect(_on_resume)
 
 func _physics_process(_delta):
-	if GameControl.is_paused(): return
-	var motion = Vector2(0, 0)
+	if GameControl.is_paused() || _dead: return
+	
+	var motion: Vector2 = Vector2(0, 0)
 	_set_direction(_direction, false)
-	if(Input.is_action_pressed("Left")):
+	if Input.is_action_pressed("Left"):
 		motion.x -= _tile_size * _saved_walk_speed
 		_set_direction(motions.left, true)
-	if(Input.is_action_pressed("Right")):
+	if Input.is_action_pressed("Right"):
 		motion.x += _tile_size * _saved_walk_speed
 		_set_direction(motions.right, true)
-	if(Input.is_action_pressed("Up")):
+	if Input.is_action_pressed("Up"):
 		motion.y -= _tile_size * _saved_walk_speed
 		_set_direction(motions.up, true)
-	if(Input.is_action_pressed("Down")):
+	if Input.is_action_pressed("Down"):
 		motion.y += _tile_size * _saved_walk_speed
 		_set_direction(motions.down, true)
-	if(Input.is_action_just_pressed("Bomb")):
+	if Input.is_action_just_pressed("Bomb"):
 		drop_bomb.emit()
+		
 	_set_visual(_direction)
 	velocity = motion
 	move_and_slide()
@@ -63,10 +67,10 @@ func _set_direction(dir: motions, moving: bool):
 	elif dir == motions.up || dir == motions.walk_up: _direction = motions.walk_up if moving else motions.up
 
 func _on_bomb_hit():
-	game_lost.emit()
+	_die()
 	
 func _on_enemy_hit():
-	game_lost.emit()
+	_die()
 
 func _on_pause():
 	if _direction > motions.down:
@@ -75,3 +79,16 @@ func _on_pause():
 func _on_resume():
 	if _direction > motions.down:
 		visuals[_direction].play()
+
+func _die():
+	if not _dead:
+		_dead = true
+		for item in visuals:
+			item.visible = false
+		death.visible = true
+		death.animation_finished.connect(_die_done)
+		death.play()
+		
+func _die_done():
+	GameControl.pause()
+	game_lost.emit()

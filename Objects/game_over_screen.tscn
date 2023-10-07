@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6374knq68xjs"]
+
+[ext_resource type="Script" path="res://Scripts/game_over_screen.gd" id="1_xaduo"]
+[ext_resource type="FontFile" uid="uid://d4bo37ch4clwo" path="res://OhOkey-vm82O.ttf" id="2_mc0xs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xuo2l"]
+font = ExtResource("2_mc0xs")
+font_size = 100
+font_color = Color(0.843137, 0.352941, 0.14902, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g8gvb"]
+font = ExtResource("2_mc0xs")
+font_size = 60
+font_color = Color(0.843137, 0.352941, 0.14902, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Game Over Screen" type="Node2D" node_paths=PackedStringArray("crystal_label")]
+z_index = 100
+script = ExtResource("1_xaduo")
+crystal_label = NodePath("Crystals")
+
+[node name="Game Over" type="Label" parent="."]
+offset_top = 260.0
+offset_right = 1920.0
+offset_bottom = 364.0
+text = "Game Over"
+label_settings = SubResource("LabelSettings_xuo2l")
+horizontal_alignment = 1
+
+[node name="Crystals" type="Label" parent="."]
+offset_top = 464.0
+offset_right = 1920.0
+offset_bottom = 528.0
+text = "Crystals Collected: 9999"
+label_settings = SubResource("LabelSettings_g8gvb")
+horizontal_alignment = 1

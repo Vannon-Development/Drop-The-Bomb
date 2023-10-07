@@ -16,5 +16,5 @@ dest_files=["res://.godot/imported/Bomb-Gray-Icon.png-49cd8e5df87e1d9ab8af7ebfcc
 
 atlas_file="res://sprites.png"
 import_mode=0
-crop_to_region=false
+crop_to_region=true
 trim_alpha_border_from_region=true

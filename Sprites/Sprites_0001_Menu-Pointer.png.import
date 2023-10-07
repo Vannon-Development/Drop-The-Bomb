@@ -16,5 +16,5 @@ dest_files=["res://.godot/imported/Sprites_0001_Menu-Pointer.png-a3315a64f6b24b6
 
 atlas_file="res://sprites.png"
 import_mode=0
-crop_to_region=false
+crop_to_region=true
 trim_alpha_border_from_region=true

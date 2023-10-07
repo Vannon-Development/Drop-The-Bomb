@@ -30,6 +30,7 @@ func _ready():
 	var lvl_disp = level_display.instantiate()
 	lvl_disp.set_level(level)
 	add_child(lvl_disp)
+	GameControl.reset()
 
 func _on_drop_bomb():
 	if _bomb_list.size() >= _bomb_count: return
@@ -90,7 +91,7 @@ func _on_add_crystal(pos: Vector2, quantity: int):
 	obj.quantity = quantity
 	call_deferred("add_child", obj)
 	
-func _pos_to_grid(pos: Vector2):
+func _pos_to_grid(pos: Vector2) -> Vector2:
 	var x = int(pos.x / 128) * 128 + 64
 	var y = int(pos.y / 128) * 128 + 64
 	return Vector2(x, y)
@@ -106,6 +107,12 @@ func _level_end_sequence():
 	obj.position = camera.get_screen_center_position() - camera.get_viewport_rect().size / 2
 	add_child(obj)
 	GameControl.pause()
+	
+func _game_over_sequence():
+	var exit_screen = load("res://Objects/game_over_screen.tscn").instantiate()
+	exit_screen.position = camera.get_screen_center_position() - camera.get_viewport_rect().size / 2
+	exit_screen.done.connect(_on_game_lost)
+	add_child(exit_screen)
 
 func _next_level():
 	var obj = load("res://Objects/game_level.tscn").instantiate()

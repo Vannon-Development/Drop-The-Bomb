@@ -9,7 +9,7 @@ func save_data():
 	var save_game = FileAccess.open("user://data.save", FileAccess.WRITE)
 	var items = {"crystals": crystals, "bomb_size": bomb_size, "bomb_count": bomb_count, "walk_speed": walk_speed}
 
-	var json_string = JSON.stringify(items)
+	var json_string := JSON.stringify(items)
 	save_game.store_line(json_string)
 
 func load_data():
@@ -17,9 +17,9 @@ func load_data():
 	if !FileAccess.file_exists("user://data.save"): return
 	
 	var save_game = FileAccess.open("user://data.save", FileAccess.READ)
-	var json_data = save_game.get_line()
+	var json_data := save_game.get_line()
 	var json = JSON.new()
-	var parse_result = json.parse(json_data)
+	var parse_result := json.parse(json_data)
 	if not parse_result == OK: return
 	
 	var data = json.get_data()
