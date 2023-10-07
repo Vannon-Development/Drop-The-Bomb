@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctl0k24sevxx4"]
+[gd_scene load_steps=11 format=3 uid="uid://ctl0k24sevxx4"]
 
 [ext_resource type="PackedScene" uid="uid://2uauipu74hdb" path="res://Objects/level.tscn" id="1_iu3w2"]
 [ext_resource type="Script" path="res://Scripts/game_scene.gd" id="1_lnyyb"]
@@ -9,8 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://dxeo3mfeyn65s" path="res://Objects/door.tscn" id="4_14hpo"]
 [ext_resource type="PackedScene" uid="uid://b425f7um0wnlj" path="res://Objects/crystal.tscn" id="5_lv367"]
 [ext_resource type="PackedScene" uid="uid://bsd6brcohd4i6" path="res://Objects/level_display.tscn" id="6_ybxkw"]
+[ext_resource type="PackedScene" uid="uid://ld0exbv8kotj" path="res://Objects/hud.tscn" id="10_lj67m"]
 
-[node name="GameLevel" type="Node2D" node_paths=PackedStringArray("level_map", "player", "camera")]
+[node name="GameLevel" type="Node2D" node_paths=PackedStringArray("level_map", "player", "camera", "hud")]
 script = ExtResource("1_lnyyb")
 level = 1
 level_map = NodePath("Level")
@@ -21,6 +22,7 @@ explosion_object = ExtResource("3_ex5qg")
 door_object = ExtResource("4_14hpo")
 crystal_object = ExtResource("5_lv367")
 level_display = ExtResource("6_ybxkw")
+hud = NodePath("HUD")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)
@@ -29,6 +31,10 @@ script = ExtResource("3_sp57n")
 [node name="Player" parent="." instance=ExtResource("2_uyxrb")]
 
 [node name="Level" parent="." instance=ExtResource("1_iu3w2")]
+
+[node name="HUD" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("10_lj67m")]
+z_index = 110
+camera = NodePath("../Camera2D")
 
 [connection signal="drop_bomb" from="Player" to="." method="_on_drop_bomb"]
 [connection signal="game_lost" from="Player" to="." method="_game_over_sequence"]

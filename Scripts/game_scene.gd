@@ -9,6 +9,7 @@ extends Node2D
 @export var door_object: PackedScene
 @export var crystal_object: PackedScene
 @export var level_display: PackedScene
+@export var hud: Node2D
 
 var _bomb_list: Array
 var _enemy_list: Array
@@ -18,6 +19,7 @@ var _bomb_count: int
 var _bomb_size: int
 var _box_count: int
 var _start_time: int
+var _level_end_started: bool = false
 
 func _ready():
 	_enemy_objects = [{ "object": preload("res://Objects/bat.tscn"), "strength": 1 }]
@@ -31,6 +33,11 @@ func _ready():
 	lvl_disp.set_level(level)
 	add_child(lvl_disp)
 	GameControl.reset()
+	GameControl.on_resume.connect(_on_resume)
+
+func _process(_delta):
+	if GameControl.is_paused(): return
+	hud.update(_enemy_list.size(), int((Time.get_ticks_msec() - _start_time) / 1000.0))
 
 func _on_drop_bomb():
 	if _bomb_list.size() >= _bomb_count: return
@@ -96,8 +103,6 @@ func _pos_to_grid(pos: Vector2) -> Vector2:
 	var y = int(pos.y / 128) * 128 + 64
 	return Vector2(x, y)
 
-var _level_end_started: bool = false
-
 func _level_end_sequence():
 	if _level_end_started: return
 	_level_end_started = true
@@ -120,3 +125,6 @@ func _next_level():
 	get_parent().call_deferred("add_child", obj)
 	GameControl.reset()
 	queue_free()
+
+func _on_resume(time: int):
+	_start_time += time

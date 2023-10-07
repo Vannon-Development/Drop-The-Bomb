@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=3 uid="uid://bvce3a2k1t8ug"]
 
 [ext_resource type="Script" path="res://Scripts/box.gd" id="1_jil3m"]
-[ext_resource type="Texture2D" uid="uid://gheecmn6nm6x" path="res://Sprites/Sprites_0000_Box.png" id="1_yixpu"]
 [ext_resource type="PackedScene" uid="uid://b425f7um0wnlj" path="res://Objects/crystal.tscn" id="2_3lspl"]
-[ext_resource type="Texture2D" uid="uid://c1m4gy8f51fe6" path="res://Sprites/Sprites_0000s_0000_Box-Explode-01.png" id="2_kshof"]
-[ext_resource type="Texture2D" uid="uid://bi2xpr6wdxwup" path="res://Sprites/Sprites_0000s_0001_Box-Explode-02.png" id="3_elxby"]
-[ext_resource type="Texture2D" uid="uid://dsacqvk0c5tlw" path="res://Sprites/Sprites_0000s_0002_Box-Explode-03.png" id="4_bc4pt"]
-[ext_resource type="Texture2D" uid="uid://b8seq1qjbswn4" path="res://Sprites/Sprites_0000s_0003_Box-Explode-04.png" id="5_b3fy8"]
-[ext_resource type="Texture2D" uid="uid://cq01hp52815tf" path="res://Sprites/Sprites_0000s_0004_Box-Explode-05.png" id="6_i874u"]
+[ext_resource type="Texture2D" uid="uid://ddp4tk7bxfme6" path="res://Sprites/Box.png" id="3_fy600"]
+[ext_resource type="Texture2D" uid="uid://ba11svpc3b04o" path="res://Sprites/Box-Explode-01.png" id="4_rogs2"]
+[ext_resource type="Texture2D" uid="uid://vwj0to3660s4" path="res://Sprites/Box-Explode-02.png" id="5_ywlxc"]
+[ext_resource type="Texture2D" uid="uid://dfqlr2vm7mqqp" path="res://Sprites/Box-Explode-03.png" id="6_hpaod"]
+[ext_resource type="Texture2D" uid="uid://dl3c7kb6u4g7o" path="res://Sprites/Box-Explode-04.png" id="7_e3lt6"]
+[ext_resource type="Texture2D" uid="uid://dl7qjhr463oxw" path="res://Sprites/Box-Explode-05.png" id="8_cbyrl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyo3y"]
 size = Vector2(126, 126)
@@ -16,19 +16,19 @@ size = Vector2(126, 126)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_kshof")
+"texture": ExtResource("4_rogs2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_elxby")
+"texture": ExtResource("5_ywlxc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_bc4pt")
+"texture": ExtResource("6_hpaod")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_b3fy8")
+"texture": ExtResource("7_e3lt6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_i874u")
+"texture": ExtResource("8_cbyrl")
 }],
 "loop": false,
 "name": &"default",
@@ -45,7 +45,7 @@ crystal_template = ExtResource("2_3lspl")
 
 [node name="Visual" type="Sprite2D" parent="."]
 z_index = 4
-texture = ExtResource("1_yixpu")
+texture = ExtResource("3_fy600")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_eyo3y")

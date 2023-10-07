@@ -43,7 +43,7 @@ func _process(_delta):
 		_update_icons()
 	if Input.is_action_just_pressed("Game Start"):
 		var price = _find_price(_selection)
-		if price >= Data.crystals: _not_enough()
+		if price > Data.crystals: _not_enough()
 		else: _buy_item(_selection)
 
 func _return_home():

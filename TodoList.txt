@@ -7,5 +7,8 @@ Crystal Enemy
 Remote I/II powerup
 Walk through Walls powerup
 Walk through Bombs powerup
+Extra life powerup
 
 Crystal display on screen
+Prompt: All enemies dead - find the door
+Prompt: Kill all enemies

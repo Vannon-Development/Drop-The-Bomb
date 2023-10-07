@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://ld0exbv8kotj"]
+
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_jsh1f"]
+[ext_resource type="FontFile" uid="uid://d4bo37ch4clwo" path="res://OhOkey-vm82O.ttf" id="1_t3jv1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6dytx"]
+font = ExtResource("1_t3jv1")
+font_size = 38
+font_color = Color(0.843137, 0.352941, 0.14902, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="Node2D" node_paths=PackedStringArray("enemies_label", "time_label")]
+script = ExtResource("1_jsh1f")
+enemies_label = NodePath("Enemies Label")
+time_label = NodePath("Time Label")
+
+[node name="Enemies Label" type="Label" parent="."]
+offset_left = 60.0
+offset_top = 60.0
+offset_right = 286.0
+offset_bottom = 102.0
+text = "Enemies: 99"
+label_settings = SubResource("LabelSettings_6dytx")
+
+[node name="Time Label" type="Label" parent="."]
+offset_left = 1603.0
+offset_top = 60.0
+offset_right = 1829.0
+offset_bottom = 102.0
+text = "Time: 999"
+label_settings = SubResource("LabelSettings_6dytx")
