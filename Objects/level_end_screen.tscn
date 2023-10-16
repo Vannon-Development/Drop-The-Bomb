@@ -17,12 +17,13 @@ font_color = Color(0.843137, 0.352941, 0.14902, 1)
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Level End Screen" type="Node2D" node_paths=PackedStringArray("level_label", "boxes_label", "time_label")]
+[node name="Level End Screen" type="Node2D" node_paths=PackedStringArray("level_label", "boxes_label", "time_label", "bonus_label")]
 z_index = 100
 script = ExtResource("1_j7oe2")
 level_label = NodePath("Level Label")
 boxes_label = NodePath("Boxes Count")
 time_label = NodePath("Time Count")
+bonus_label = NodePath("Bonus Count")
 
 [node name="Level Label" type="Label" parent="."]
 offset_top = 184.0
@@ -62,4 +63,20 @@ offset_top = 534.0
 offset_right = 1315.0
 offset_bottom = 602.0
 text = "300 seconds"
+label_settings = SubResource("LabelSettings_74ooh")
+
+[node name="Bonus Static" type="Label" parent="."]
+offset_left = 200.0
+offset_top = 644.0
+offset_right = 370.0
+offset_bottom = 712.0
+text = "Bonus Crystals:"
+label_settings = SubResource("LabelSettings_74ooh")
+
+[node name="Bonus Count" type="Label" parent="."]
+offset_left = 900.0
+offset_top = 644.0
+offset_right = 1315.0
+offset_bottom = 712.0
+text = "100"
 label_settings = SubResource("LabelSettings_74ooh")

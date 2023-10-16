@@ -1,0 +1,95 @@
+[gd_scene load_steps=15 format=3 uid="uid://x2op1mmxpgf6"]
+
+[ext_resource type="Script" path="res://Scripts/red_bat.gd" id="1_1sle7"]
+[ext_resource type="Texture2D" uid="uid://dfc1aqus3nx7j" path="res://Sprites/Red-Bat-01.png" id="1_e7l5k"]
+[ext_resource type="Texture2D" uid="uid://bo28ll37a53ai" path="res://Sprites/Red-Bat-02.png" id="2_2qqxe"]
+[ext_resource type="Texture2D" uid="uid://gqgr5iv0echo" path="res://Sprites/Fire-Bat-01.png" id="3_omx5e"]
+[ext_resource type="Texture2D" uid="uid://b3vvsdwi5a0qt" path="res://Sprites/Fire-Bat-02.png" id="4_2ykfp"]
+[ext_resource type="Texture2D" uid="uid://s78vdnyg7hwf" path="res://Sprites/Fire-Bat-Die-01.png" id="5_jpwyp"]
+[ext_resource type="Texture2D" uid="uid://or6ehsv8a1sq" path="res://Sprites/Fire-Bat-Die-02.png" id="6_l0x1p"]
+[ext_resource type="Texture2D" uid="uid://chggh8jclh51h" path="res://Sprites/Fire-Bat-Die-03.png" id="7_cwmkj"]
+[ext_resource type="Texture2D" uid="uid://b8gruvhuvtn4w" path="res://Sprites/Fire-Bat-Die-04.png" id="8_arkox"]
+[ext_resource type="Texture2D" uid="uid://ct602psytsmka" path="res://Sprites/Fire-Bat-Die-05.png" id="9_305g6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rvow2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_e7l5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2qqxe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dk6m4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_omx5e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2ykfp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uh61x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_jpwyp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_l0x1p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cwmkj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_arkox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_305g6")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u7rev"]
+radius = 63.0
+
+[node name="Red Bat" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "fire_sprite", "explode")]
+z_index = 40
+collision_layer = 288
+collision_mask = 78
+motion_mode = 1
+script = ExtResource("1_1sle7")
+sprite = NodePath("Red Bat Visual")
+fire_sprite = NodePath("Fire Bat Visual")
+explode = NodePath("Fire Bat Die")
+speed = 1.0
+fire_speed = 3.0
+
+[node name="Red Bat Visual" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rvow2")
+autoplay = "default"
+frame_progress = 0.262827
+
+[node name="Fire Bat Visual" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_dk6m4")
+frame_progress = 0.749916
+
+[node name="Fire Bat Die" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_uh61x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_u7rev")

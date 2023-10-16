@@ -8,6 +8,7 @@ var _bomb_explode_time: int
 
 func _ready():
 	_bomb_explode_time = Time.get_ticks_msec() + int(timer * 1000)
+	if Data.remote_type != 0: _bomb_explode_time += 1000 * 1000
 	GameControl.on_resume.connect(_on_resume)
 	
 func _process(_delta):

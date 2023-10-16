@@ -14,7 +14,7 @@ outline_color = Color(0, 0, 0, 1)
 z_index = 100
 script = ExtResource("1_860c4")
 label = NodePath("Label")
-timer = 3.0
+timer = 2.0
 
 [node name="Label" type="Label" parent="."]
 offset_right = 1920.0

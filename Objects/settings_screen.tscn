@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://b27yuv7fxgpnr"]
+
+[ext_resource type="Script" path="res://Scripts/settings_screen.gd" id="1_eyrgl"]
+[ext_resource type="FontFile" uid="uid://d4bo37ch4clwo" path="res://OhOkey-vm82O.ttf" id="1_pm7vf"]
+[ext_resource type="Texture2D" uid="uid://eahyghcwbb1v" path="res://Sprites/Sprites_0001_Menu-Pointer.png" id="2_3qjg0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_um74f"]
+font = ExtResource("1_pm7vf")
+font_size = 100
+font_color = Color(0.843137, 0.352941, 0.14902, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_t43ot"]
+font = ExtResource("1_pm7vf")
+font_size = 60
+font_color = Color(0.843137, 0.352941, 0.14902, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xghu5"]
+font = ExtResource("1_pm7vf")
+font_size = 60
+font_color = Color(0.843137, 0.352941, 0.14902, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Settings Screen" type="Node2D" node_paths=PackedStringArray("back_marker", "erase_marker")]
+z_index = 100
+script = ExtResource("1_eyrgl")
+back_marker = NodePath("Back Marker")
+erase_marker = NodePath("Erase Marker")
+
+[node name="Settings" type="Label" parent="."]
+offset_top = 260.0
+offset_right = 1920.0
+offset_bottom = 364.0
+text = "Settings"
+label_settings = SubResource("LabelSettings_um74f")
+horizontal_alignment = 1
+
+[node name="Back" type="Label" parent="."]
+offset_left = 560.0
+offset_top = 440.0
+offset_right = 801.0
+offset_bottom = 504.0
+text = "Back"
+label_settings = SubResource("LabelSettings_t43ot")
+
+[node name="Erase" type="Label" parent="."]
+offset_left = 560.0
+offset_top = 542.0
+offset_right = 842.0
+offset_bottom = 606.0
+text = "Erase Data"
+label_settings = SubResource("LabelSettings_xghu5")
+
+[node name="Back Marker" type="Sprite2D" parent="."]
+position = Vector2(494, 461)
+texture = ExtResource("2_3qjg0")
+
+[node name="Erase Marker" type="Sprite2D" parent="."]
+position = Vector2(494, 563)
+texture = ExtResource("2_3qjg0")
+
+[node name="BG Color" type="Polygon2D" parent="."]
+z_index = -1
+color = Color(0.25, 0.925, 1, 1)
+polygon = PackedVector2Array(1986, -36, -63, -39, -59, 1150, 1997, 1160)

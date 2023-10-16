@@ -14,10 +14,11 @@ font = ExtResource("3_i7gxd")
 font_size = 60
 font_color = Color(0.776471, 0.380392, 0.211765, 1)
 
-[node name="Start Screen" type="Node2D" node_paths=PackedStringArray("start_icon", "upgrade_icon")]
+[node name="Start Screen" type="Node2D" node_paths=PackedStringArray("start_icon", "upgrade_icon", "options_icon")]
 script = ExtResource("1_hp7bh")
 start_icon = NodePath("Start Icon")
 upgrade_icon = NodePath("Upgrade Icon")
+options_icon = NodePath("Options Icon")
 
 [node name="BG Color" type="Polygon2D" parent="."]
 z_index = -1
@@ -55,4 +56,17 @@ offset_top = 726.0
 offset_right = 1243.0
 offset_bottom = 790.0
 text = "Upgrade"
+label_settings = SubResource("LabelSettings_rhyq6")
+
+[node name="Options Icon" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(892, 864)
+texture = ExtResource("2_r4pwh")
+
+[node name="Options" type="Label" parent="."]
+offset_left = 953.0
+offset_top = 844.0
+offset_right = 1205.0
+offset_bottom = 908.0
+text = "Options"
 label_settings = SubResource("LabelSettings_rhyq6")

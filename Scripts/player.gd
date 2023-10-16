@@ -21,6 +21,8 @@ func _ready():
 	position = Vector2(startPos, startPos)
 	_direction = motions.right
 	_saved_walk_speed = walk_speed * (1 + (Data.walk_speed - 1) * 0.2)
+	if Data.wall_walk: set_collision_mask_value(4, false)
+	if Data.bomb_walk: set_collision_mask_value(3, false)
 	GameControl.on_pause.connect(_on_pause)
 	GameControl.on_resume.connect(_on_resume)
 
@@ -29,17 +31,14 @@ func _physics_process(_delta):
 	
 	var motion: Vector2 = Vector2(0, 0)
 	_set_direction(_direction, false)
+	motion = Input.get_vector("Left", "Right", "Up", "Down") * (_saved_walk_speed * _tile_size)
 	if Input.is_action_pressed("Left"):
-		motion.x -= _tile_size * _saved_walk_speed
 		_set_direction(motions.left, true)
 	if Input.is_action_pressed("Right"):
-		motion.x += _tile_size * _saved_walk_speed
 		_set_direction(motions.right, true)
 	if Input.is_action_pressed("Up"):
-		motion.y -= _tile_size * _saved_walk_speed
 		_set_direction(motions.up, true)
 	if Input.is_action_pressed("Down"):
-		motion.y += _tile_size * _saved_walk_speed
 		_set_direction(motions.down, true)
 	if Input.is_action_just_pressed("Bomb"):
 		drop_bomb.emit()
@@ -76,7 +75,7 @@ func _on_pause():
 	if _direction > motions.down:
 		visuals[_direction].pause()
 
-func _on_resume():
+func _on_resume(_delta: int):
 	if _direction > motions.down:
 		visuals[_direction].play()
 

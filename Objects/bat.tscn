@@ -52,7 +52,7 @@ animations = [{
 [node name="Bat" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "explode")]
 z_index = 40
 collision_layer = 288
-collision_mask = 74
+collision_mask = 78
 motion_mode = 1
 script = ExtResource("1_fqy28")
 sprite = NodePath("Fly")

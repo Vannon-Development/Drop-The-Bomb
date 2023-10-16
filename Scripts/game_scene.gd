@@ -22,7 +22,9 @@ var _start_time: int
 var _level_end_started: bool = false
 
 func _ready():
-	_enemy_objects = [{ "object": preload("res://Objects/bat.tscn"), "strength": 1 }]
+	_enemy_objects = [
+		{ "object": preload("res://Objects/bat.tscn"), "strength": 1 },
+		{ "object": preload("res://Objects/red_bat.tscn"), "strength": 3}]
 	_bomb_count = Data.bomb_count
 	_bomb_size = Data.bomb_size
 	_add_enemies()
@@ -36,7 +38,17 @@ func _ready():
 	GameControl.on_resume.connect(_on_resume)
 
 func _process(_delta):
+	if Input.is_action_just_pressed("Pause") && !GameControl.is_paused():
+		var ps: Node2D = load("res://Objects/pause_screen.tscn").instantiate()
+		ps.position = camera.get_screen_center_position() - camera.get_viewport_rect().size / 2
+		add_child(ps)
+	
 	if GameControl.is_paused(): return
+	
+	if Input.is_action_just_pressed("Remote"):
+		if Data.remote_type == 1: _on_remote_all()
+		elif Data.remote_type == 2: _on_remote_single()
+	
 	hud.update(_enemy_list.size(), int((Time.get_ticks_msec() - _start_time) / 1000.0))
 
 func _on_drop_bomb():
@@ -57,6 +69,13 @@ func _on_explode(bomb: Node2D):
 	add_child(ex)
 	_bomb_list.remove_at(_bomb_list.find(bomb))
 	bomb.queue_free()
+	
+func _on_remote_all():
+	for bomb in _bomb_list:
+		bomb.trigger_explode()
+
+func _on_remote_single():
+	if _bomb_list.size() != 0: _bomb_list[0].trigger_explode()
 
 func _add_enemies():
 	var size = level

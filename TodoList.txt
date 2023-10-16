@@ -1,14 +1,14 @@
-Pause Screen
-Settings Screen (erase data)
+Activate Quit option on pause screen
+Shouldn't be able to drop a bomb inside a wall
 
-Red Bat/Fire Bat Enemy
 Crystal Enemy
+Ghost Enemy
 
-Remote I/II powerup
-Walk through Walls powerup
-Walk through Bombs powerup
 Extra life powerup
 
-Crystal display on screen
 Prompt: All enemies dead - find the door
 Prompt: Kill all enemies
+Prompt on Upgrade screen: not enough crystals
+
+Remake explosion graphics
+Remake bomb graphic

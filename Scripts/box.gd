@@ -39,6 +39,6 @@ func _on_pause():
 	if _exploding:
 		explode_visual.pause()
 
-func _on_resume():
+func _on_resume(_delta: int):
 	if _exploding:
 		explode_visual.play()

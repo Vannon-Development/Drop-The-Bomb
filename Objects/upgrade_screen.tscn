@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://be4714ee3rnx5"]
+[gd_scene load_steps=20 format=3 uid="uid://be4714ee3rnx5"]
 
 [ext_resource type="Script" path="res://Scripts/upgrade_screen.gd" id="1_qk25j"]
 [ext_resource type="Texture2D" uid="uid://cafqhocp37d7m" path="res://Sprites/Bomb-Gray-Icon.png" id="2_saxlk"]
@@ -9,6 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://78b35o6kqhar" path="res://Sprites/Speed-Gray-Icon.png" id="6_sn2jt"]
 [ext_resource type="Texture2D" uid="uid://cwpio8eugc52a" path="res://Sprites/Speed-Lit-Icon.png" id="7_0u560"]
 [ext_resource type="Texture2D" uid="uid://cqrqeoje27fco" path="res://Sprites/Crystal.png" id="7_35wvd"]
+[ext_resource type="Texture2D" uid="uid://bkvsa34elo7sr" path="res://Sprites/Remote-All-Gray-Icon.png" id="10_eubdc"]
+[ext_resource type="Texture2D" uid="uid://pd4lm6w8k0pf" path="res://Sprites/Wall-Walk-Gray-Icon.png" id="10_ofnth"]
+[ext_resource type="Texture2D" uid="uid://qf4wmbqkwrrm" path="res://Sprites/Wall-Walk-Lit-Icon.png" id="11_et4fv"]
+[ext_resource type="Texture2D" uid="uid://bt83cy5xba4ap" path="res://Sprites/Remote-All-Lit-Icon.png" id="11_qig4b"]
+[ext_resource type="Texture2D" uid="uid://h06bw38clbwl" path="res://Sprites/Remote-Single-Gray-Icon.png" id="12_c323k"]
+[ext_resource type="Texture2D" uid="uid://bh38bpc07l516" path="res://Sprites/Bomb-Walk-Gray-Icon.png" id="12_jnywe"]
+[ext_resource type="Texture2D" uid="uid://c1jdjdx22sbao" path="res://Sprites/Remote-Single-Lit-Icon.png" id="13_1f77u"]
+[ext_resource type="Texture2D" uid="uid://nnjpr3r2hsdb" path="res://Sprites/Bomb-Walk-Lit-Icon.png" id="13_ptadf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fmsbe"]
 font = ExtResource("3_t42xj")
@@ -20,7 +28,7 @@ font = ExtResource("3_t42xj")
 font_size = 100
 font_color = Color(0.843137, 0.352941, 0.14902, 1)
 
-[node name="Upgrade Screen" type="Node2D" node_paths=PackedStringArray("crystal_count", "bomb_label", "bomb_price", "bomb_crystal", "bomb_icon_lit", "bomb_icon_gray", "size_label", "size_price", "size_crystal", "size_icon_lit", "size_icon_gray", "speed_label", "speed_price", "speed_crystal", "speed_icon_lit", "speed_icon_gray")]
+[node name="Upgrade Screen" type="Node2D" node_paths=PackedStringArray("crystal_count", "bomb_label", "bomb_price", "bomb_crystal", "bomb_icon_lit", "bomb_icon_gray", "size_label", "size_price", "size_crystal", "size_icon_lit", "size_icon_gray", "speed_label", "speed_price", "speed_crystal", "speed_icon_lit", "speed_icon_gray", "remote_price", "remote_crystal", "remote_all_icon_lit", "remote_all_icon_gray", "remote_single_icon_lit", "remote_single_icon_gray", "wall_walk_price", "wall_walk_crystal", "wall_walk_icon_lit", "wall_walk_icon_gray", "bomb_walk_price", "bomb_walk_crystal", "bomb_walk_icon_lit", "bomb_walk_icon_gray")]
 script = ExtResource("1_qk25j")
 crystal_count = NodePath("Crystals")
 bomb_label = NodePath("Bomb Count")
@@ -38,6 +46,20 @@ speed_price = NodePath("Speed Price")
 speed_crystal = NodePath("Speed Crystal")
 speed_icon_lit = NodePath("Speed Icon Lit")
 speed_icon_gray = NodePath("Speed Icon Gray")
+remote_price = NodePath("Remote Price")
+remote_crystal = NodePath("Remote Crystal")
+remote_all_icon_lit = NodePath("Remote All Icon Lit")
+remote_all_icon_gray = NodePath("Remote All Icon Gray")
+remote_single_icon_lit = NodePath("Remote Single Icon Lit")
+remote_single_icon_gray = NodePath("Remote Single Icon Gray")
+wall_walk_price = NodePath("Wall Walk Price")
+wall_walk_crystal = NodePath("Wall Walk Crystal")
+wall_walk_icon_lit = NodePath("Wall Walk Icon Lit")
+wall_walk_icon_gray = NodePath("Wall Walk Icon Gray")
+bomb_walk_price = NodePath("Bomb Walk Price")
+bomb_walk_crystal = NodePath("Bomb Walk Crystal")
+bomb_walk_icon_lit = NodePath("Bomb Walk Icon Lit")
+bomb_walk_icon_gray = NodePath("Bomb Walk Icon Gray")
 
 [node name="BG Color" type="Polygon2D" parent="."]
 z_index = -1
@@ -138,6 +160,74 @@ label_settings = SubResource("LabelSettings_tpmpe")
 
 [node name="Bomb Crystal" type="Sprite2D" parent="."]
 position = Vector2(451, 385)
+texture = ExtResource("7_35wvd")
+
+[node name="Wall Walk Icon Gray" type="Sprite2D" parent="."]
+position = Vector2(1114, 382)
+texture = ExtResource("10_ofnth")
+
+[node name="Wall Walk Icon Lit" type="Sprite2D" parent="."]
+position = Vector2(1114, 382)
+texture = ExtResource("11_et4fv")
+
+[node name="Wall Walk Price" type="Label" parent="."]
+offset_left = 1306.0
+offset_top = 337.0
+offset_right = 1618.0
+offset_bottom = 441.0
+text = "x 1000"
+label_settings = SubResource("LabelSettings_tpmpe")
+
+[node name="Wall Walk Crystal" type="Sprite2D" parent="."]
+position = Vector2(1237, 385)
+texture = ExtResource("7_35wvd")
+
+[node name="Bomb Walk Icon Gray" type="Sprite2D" parent="."]
+position = Vector2(1114, 527)
+texture = ExtResource("12_jnywe")
+
+[node name="Bomb Walk Icon Lit" type="Sprite2D" parent="."]
+position = Vector2(1114, 527)
+texture = ExtResource("13_ptadf")
+
+[node name="Bomb Walk Price" type="Label" parent="."]
+offset_left = 1306.0
+offset_top = 482.0
+offset_right = 1618.0
+offset_bottom = 586.0
+text = "x 1000"
+label_settings = SubResource("LabelSettings_tpmpe")
+
+[node name="Bomb Walk Crystal" type="Sprite2D" parent="."]
+position = Vector2(1237, 530)
+texture = ExtResource("7_35wvd")
+
+[node name="Remote All Icon Gray" type="Sprite2D" parent="."]
+position = Vector2(328, 822)
+texture = ExtResource("10_eubdc")
+
+[node name="Remote All Icon Lit" type="Sprite2D" parent="."]
+position = Vector2(328, 822)
+texture = ExtResource("11_qig4b")
+
+[node name="Remote Single Icon Gray" type="Sprite2D" parent="."]
+position = Vector2(328, 822)
+texture = ExtResource("12_c323k")
+
+[node name="Remote Single Icon Lit" type="Sprite2D" parent="."]
+position = Vector2(328, 822)
+texture = ExtResource("13_1f77u")
+
+[node name="Remote Price" type="Label" parent="."]
+offset_left = 520.0
+offset_top = 777.0
+offset_right = 832.0
+offset_bottom = 881.0
+text = "x 1000"
+label_settings = SubResource("LabelSettings_tpmpe")
+
+[node name="Remote Crystal" type="Sprite2D" parent="."]
+position = Vector2(451, 825)
 texture = ExtResource("7_35wvd")
 
 [node name="Crystal Count Icon" type="Sprite2D" parent="."]

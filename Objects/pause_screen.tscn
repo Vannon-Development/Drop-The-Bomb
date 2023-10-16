@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://d005ox0wafkyb"]
+
+[ext_resource type="FontFile" uid="uid://d4bo37ch4clwo" path="res://OhOkey-vm82O.ttf" id="1_sd6jj"]
+[ext_resource type="Script" path="res://Scripts/pause_screen.gd" id="1_wn5b0"]
+[ext_resource type="Texture2D" uid="uid://eahyghcwbb1v" path="res://Sprites/Sprites_0001_Menu-Pointer.png" id="2_x6eyl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dey3r"]
+font = ExtResource("1_sd6jj")
+font_size = 100
+font_color = Color(0.843137, 0.352941, 0.14902, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_u4ec2"]
+font = ExtResource("1_sd6jj")
+font_size = 60
+font_color = Color(0.843137, 0.352941, 0.14902, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Pause Screen" type="Node2D" node_paths=PackedStringArray("resume_marker", "quit_marker")]
+z_index = 100
+script = ExtResource("1_wn5b0")
+resume_marker = NodePath("Resume Marker")
+quit_marker = NodePath("Quit Marker")
+
+[node name="Paused" type="Label" parent="."]
+offset_left = -1.0
+offset_top = 260.0
+offset_right = 1919.0
+offset_bottom = 364.0
+text = "Paused"
+label_settings = SubResource("LabelSettings_dey3r")
+horizontal_alignment = 1
+
+[node name="Resume" type="Label" parent="."]
+offset_left = 560.0
+offset_top = 440.0
+offset_right = 801.0
+offset_bottom = 504.0
+text = "Resume"
+label_settings = SubResource("LabelSettings_u4ec2")
+
+[node name="Quit" type="Label" parent="."]
+offset_left = 560.0
+offset_top = 542.0
+offset_right = 842.0
+offset_bottom = 606.0
+text = "Quit"
+label_settings = SubResource("LabelSettings_u4ec2")
+
+[node name="Resume Marker" type="Sprite2D" parent="."]
+position = Vector2(494, 461)
+texture = ExtResource("2_x6eyl")
+
+[node name="Quit Marker" type="Sprite2D" parent="."]
+position = Vector2(494, 563)
+texture = ExtResource("2_x6eyl")
