@@ -1,5 +1,7 @@
 extends menu_select
 
+signal quit(screen: Node2D)
+
 @export var resume_marker: Sprite2D
 @export var quit_marker: Sprite2D
 
@@ -21,4 +23,4 @@ func _dismiss():
 	queue_free()
 	
 func _quit_game():
-	pass
+	quit.emit(self)

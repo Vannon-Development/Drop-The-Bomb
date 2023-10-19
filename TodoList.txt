@@ -1,6 +1,3 @@
-Activate Quit option on pause screen
-Shouldn't be able to drop a bomb inside a wall
-
 Crystal Enemy
 Ghost Enemy
 

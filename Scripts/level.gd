@@ -18,7 +18,7 @@ var _box_list: Array[Node2D]
 func box_count():
 	return _box_list.size()
 
-func _ready():	
+func _ready():
 	_root = Node2D.new()
 	_root.name = "Tiles"
 	add_child(_root)
@@ -69,3 +69,8 @@ func _add_tile(obj: PackedScene, x: int, y: int):
 	
 func open_spaces():
 	return _floor_list
+
+func has_box(loc: Vector2) -> bool:
+	for box in _box_list:
+		if (box.position - loc).is_zero_approx(): return true
+	return false

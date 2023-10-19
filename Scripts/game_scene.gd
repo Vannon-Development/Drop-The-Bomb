@@ -32,6 +32,7 @@ func _ready():
 	_start_time = Time.get_ticks_msec()
 	
 	var lvl_disp = level_display.instantiate()
+	lvl_disp.camera = camera
 	lvl_disp.set_level(level)
 	add_child(lvl_disp)
 	GameControl.reset()
@@ -41,6 +42,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("Pause") && !GameControl.is_paused():
 		var ps: Node2D = load("res://Objects/pause_screen.tscn").instantiate()
 		ps.position = camera.get_screen_center_position() - camera.get_viewport_rect().size / 2
+		ps.quit.connect(_pause_quit)
 		add_child(ps)
 	
 	if GameControl.is_paused(): return
@@ -54,6 +56,8 @@ func _process(_delta):
 func _on_drop_bomb():
 	if _bomb_list.size() >= _bomb_count: return
 	var pos = _pos_to_grid(player.position)
+	if level_map.has_box(pos): return
+	
 	for item in _bomb_list:
 		if item.position.x == pos.x && item.position.y == pos.y: return
 	var bomb = bomb_object.instantiate()
@@ -125,23 +129,27 @@ func _pos_to_grid(pos: Vector2) -> Vector2:
 func _level_end_sequence():
 	if _level_end_started: return
 	_level_end_started = true
-	var obj = load("res://Objects/level_end_screen.tscn").instantiate()
+	var obj: Node2D = load("res://Objects/level_end_screen.tscn").instantiate()
 	obj.set_values(level, int((_box_count - level_map.box_count()) / float(_box_count) * 100), int((Time.get_ticks_msec() - _start_time) / 1000.0))
 	obj.dismissed.connect(_next_level)
 	obj.position = camera.get_screen_center_position() - camera.get_viewport_rect().size / 2
 	add_child(obj)
 	GameControl.pause()
 	
+func _pause_quit(screen: Node2D):
+	screen.queue_free()
+	_game_over_sequence()
+	
 func _game_over_sequence():
-	var exit_screen = load("res://Objects/game_over_screen.tscn").instantiate()
+	var exit_screen: Node2D = load("res://Objects/game_over_screen.tscn").instantiate()
 	exit_screen.position = camera.get_screen_center_position() - camera.get_viewport_rect().size / 2
 	exit_screen.done.connect(_on_game_lost)
 	add_child(exit_screen)
 
 func _next_level():
-	var obj = load("res://Objects/game_level.tscn").instantiate()
+	var obj: Node2D = load("res://Objects/game_level.tscn").instantiate()
 	obj.level = level + 1
-	get_parent().call_deferred("add_child", obj)
+	call_deferred("add_sibling", obj)
 	GameControl.reset()
 	queue_free()
 

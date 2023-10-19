@@ -1,7 +1,9 @@
-extends Node
+extends Node2D
 
 @export var label: Label
 @export var timer: float
+
+var camera
 
 var _time
 
@@ -13,3 +15,5 @@ func _ready():
 
 func _process(_delta):
 	if Time.get_ticks_msec() >= _time: queue_free()
+	position = camera.get_screen_center_position() - camera.get_viewport_rect().size / 2
+
