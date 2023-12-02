@@ -20,13 +20,13 @@ func save_data():
 func load_data():
 	default()
 	if !FileAccess.file_exists("user://data.save"): return
-	
+
 	var save_game = FileAccess.open("user://data.save", FileAccess.READ)
 	var json_data := save_game.get_line()
 	var json = JSON.new()
 	var parse_result := json.parse(json_data)
 	if not parse_result == OK: return
-	
+
 	var data = json.get_data()
 	crystals = data["crystals"]
 	bomb_size = data["bomb_size"]

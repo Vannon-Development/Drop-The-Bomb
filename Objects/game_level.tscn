@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctl0k24sevxx4"]
+[gd_scene load_steps=12 format=3 uid="uid://ctl0k24sevxx4"]
 
 [ext_resource type="PackedScene" uid="uid://2uauipu74hdb" path="res://Objects/level.tscn" id="1_iu3w2"]
 [ext_resource type="Script" path="res://Scripts/game_scene.gd" id="1_lnyyb"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b425f7um0wnlj" path="res://Objects/crystal.tscn" id="5_lv367"]
 [ext_resource type="PackedScene" uid="uid://bsd6brcohd4i6" path="res://Objects/level_display.tscn" id="6_ybxkw"]
 [ext_resource type="PackedScene" uid="uid://ld0exbv8kotj" path="res://Objects/hud.tscn" id="10_lj67m"]
+[ext_resource type="AudioStream" uid="uid://da1ti2f1jwem3" path="res://Audio/level_theme.mp3" id="11_beafi"]
 
 [node name="GameLevel" type="Node2D" node_paths=PackedStringArray("level_map", "player", "camera", "hud")]
 script = ExtResource("1_lnyyb")
@@ -35,6 +36,10 @@ script = ExtResource("3_sp57n")
 [node name="HUD" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("10_lj67m")]
 z_index = 110
 camera = NodePath("../Camera2D")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_beafi")
+bus = &"Music"
 
 [connection signal="drop_bomb" from="Player" to="." method="_on_drop_bomb"]
 [connection signal="game_lost" from="Player" to="." method="_game_over_sequence"]

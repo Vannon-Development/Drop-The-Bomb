@@ -3,14 +3,14 @@
 importer="texture_atlas"
 type="Texture2D"
 uid="uid://bauydwnjtbj31"
-path="res://.godot/imported/Bomb-Lit-Icon.png-8e886367a6c80da7084de48768de2201.res"
+path="res://.godot/imported/Bomb-Lit-Icon.png-3c78b70354ecfbefe4d78029d578d37f.res"
 group_file="res://sprites.png"
 valid=true
 [deps]
 
 
-source_file="res://Sprites/Bomb-Lit-Icon.png"
-dest_files=["res://.godot/imported/Bomb-Lit-Icon.png-8e886367a6c80da7084de48768de2201.res"]
+source_file="res://Menus/Icons/Bomb-Lit-Icon.png"
+dest_files=["res://.godot/imported/Bomb-Lit-Icon.png-3c78b70354ecfbefe4d78029d578d37f.res"]
 
 [params]
 

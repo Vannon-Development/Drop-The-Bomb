@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7wwnvyt2qcbc"]
+
+[ext_resource type="Script" path="res://Menus/menu_scene.gd" id="1_t4cet"]
+[ext_resource type="AudioStream" uid="uid://1ulqrefsmfo1" path="res://Audio/title_screen_theme.mp3" id="2_tsovw"]
+
+[node name="Menu Scene" type="Node2D"]
+script = ExtResource("1_t4cet")
+
+[node name="BG Color" type="Polygon2D" parent="."]
+z_index = -1
+color = Color(0.25, 0.925, 1, 1)
+polygon = PackedVector2Array(1986, -36, -63, -39, -59, 1150, 1997, 1160)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_tsovw")
+autoplay = true

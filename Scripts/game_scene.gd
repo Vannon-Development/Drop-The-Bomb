@@ -30,7 +30,7 @@ func _ready():
 	_add_enemies()
 	_box_count = level_map.box_count()
 	_start_time = Time.get_ticks_msec()
-	
+
 	var lvl_disp = level_display.instantiate()
 	lvl_disp.camera = camera
 	lvl_disp.set_level(level)
@@ -44,20 +44,20 @@ func _process(_delta):
 		ps.position = camera.get_screen_center_position() - camera.get_viewport_rect().size / 2
 		ps.quit.connect(_pause_quit)
 		add_child(ps)
-	
+
 	if GameControl.is_paused(): return
-	
+
 	if Input.is_action_just_pressed("Remote"):
 		if Data.remote_type == 1: _on_remote_all()
 		elif Data.remote_type == 2: _on_remote_single()
-	
+
 	hud.update(_enemy_list.size(), int((Time.get_ticks_msec() - _start_time) / 1000.0))
 
 func _on_drop_bomb():
 	if _bomb_list.size() >= _bomb_count: return
 	var pos = _pos_to_grid(player.position)
 	if level_map.has_box(pos): return
-	
+
 	for item in _bomb_list:
 		if item.position.x == pos.x && item.position.y == pos.y: return
 	var bomb = bomb_object.instantiate()
@@ -73,7 +73,7 @@ func _on_explode(bomb: Node2D):
 	add_child(ex)
 	_bomb_list.remove_at(_bomb_list.find(bomb))
 	bomb.queue_free()
-	
+
 func _on_remote_all():
 	for bomb in _bomb_list:
 		bomb.trigger_explode()
@@ -96,7 +96,7 @@ func _add_enemies():
 		enemy.dead.connect(_on_enemy_dead)
 		add_child(enemy)
 		_enemy_list.append(enemy)
-		
+
 func _on_game_lost():
 	var obj = load("res://Objects/start_screen.tscn").instantiate()
 	get_parent().add_child(obj)
@@ -107,10 +107,10 @@ func _on_level_door_exposed(pos: Vector2):
 	d.position = pos
 	d.door_entered.connect(_on_door_entered)
 	add_child(d)
-	
+
 func _on_door_entered():
 	if _enemy_list.size() == 0: _level_end_sequence()
-	
+
 func _on_enemy_dead(enemy: Node2D):
 	var index = _enemy_list.find(enemy)
 	_enemy_list.remove_at(index)
@@ -120,7 +120,7 @@ func _on_add_crystal(pos: Vector2, quantity: int):
 	obj.position = _pos_to_grid(pos)
 	obj.quantity = quantity
 	call_deferred("add_child", obj)
-	
+
 func _pos_to_grid(pos: Vector2) -> Vector2:
 	var x = int(pos.x / 128) * 128 + 64
 	var y = int(pos.y / 128) * 128 + 64
@@ -135,11 +135,11 @@ func _level_end_sequence():
 	obj.position = camera.get_screen_center_position() - camera.get_viewport_rect().size / 2
 	add_child(obj)
 	GameControl.pause()
-	
+
 func _pause_quit(screen: Node2D):
 	screen.queue_free()
 	_game_over_sequence()
-	
+
 func _game_over_sequence():
 	var exit_screen: Node2D = load("res://Objects/game_over_screen.tscn").instantiate()
 	exit_screen.position = camera.get_screen_center_position() - camera.get_viewport_rect().size / 2
