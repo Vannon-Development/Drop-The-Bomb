@@ -6,3 +6,5 @@
 font = ExtResource("1_npak1")
 font_size = 200
 font_color = Color(0.843137, 0.352941, 0.14902, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)

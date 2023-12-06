@@ -40,6 +40,15 @@ func _add_bindings(menu: MenuBase):
 		m.on_upgrade.connect(_select_upgrade)
 		m.on_settings.connect(_select_settings)
 		m.on_credits.connect(_select_credits)
+	elif menu is MenuUpgrade:
+		var m := menu as MenuUpgrade
+		m.on_back.connect(_select_home)
+	elif menu is MenuCredits:
+		var m := menu as MenuCredits
+		m.on_back.connect(_select_home)
+	elif menu is MenuSettings:
+		var m := menu as MenuSettings
+		m.on_back.connect(_select_home)
 
 func _clear_bindings(menu: MenuBase):
 	if menu is MenuHome:
@@ -48,6 +57,15 @@ func _clear_bindings(menu: MenuBase):
 		m.on_upgrade.disconnect(_select_upgrade)
 		m.on_settings.disconnect(_select_settings)
 		m.on_credits.disconnect(_select_credits)
+	elif menu is MenuUpgrade:
+		var m := menu as MenuUpgrade
+		m.on_back.disconnect(_select_home)
+	elif menu is MenuCredits:
+		var m := menu as MenuCredits
+		m.on_back.disconnect(_select_home)
+	elif menu is MenuSettings:
+		var m := menu as MenuSettings
+		m.on_back.disconnect(_select_home)
 
 func _select_home():
 	_swap_menu(Menus.home)

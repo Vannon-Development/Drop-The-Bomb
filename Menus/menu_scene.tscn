@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7wwnvyt2qcbc"]
+[gd_scene load_steps=4 format=3 uid="uid://c7wwnvyt2qcbc"]
 
 [ext_resource type="Script" path="res://Menus/menu_scene.gd" id="1_t4cet"]
 [ext_resource type="AudioStream" uid="uid://1ulqrefsmfo1" path="res://Audio/title_screen_theme.mp3" id="2_tsovw"]
+[ext_resource type="Script" path="res://Audio/sound_control.gd" id="3_tj27w"]
 
 [node name="Menu Scene" type="Node2D"]
 script = ExtResource("1_t4cet")
@@ -14,3 +15,4 @@ polygon = PackedVector2Array(1986, -36, -63, -39, -59, 1150, 1997, 1160)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_tsovw")
 autoplay = true
+script = ExtResource("3_tj27w")

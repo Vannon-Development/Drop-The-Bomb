@@ -21,7 +21,7 @@ func update_visual():
 	pass
 
 func is_two_column() -> bool:
-	return true;
+	return false;
 
 func next() -> int:
 	return selected

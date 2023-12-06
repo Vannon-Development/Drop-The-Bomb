@@ -8,9 +8,6 @@ signal on_upgrade();
 @onready var icons: Array[Control] = [$"Start/Icon", $"Upgrade/Icon", $"Options/Icon", $"Credits/Icon"]
 @onready var triggers: Array[Signal] = [on_start, on_upgrade, on_settings, on_credits]
 
-func is_two_column() -> bool:
-	return false;
-
 func next() -> int:
 	if selected == 3: return 0
 	else: return selected + 1

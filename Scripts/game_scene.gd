@@ -98,7 +98,7 @@ func _add_enemies():
 		_enemy_list.append(enemy)
 
 func _on_game_lost():
-	var obj = load("res://Objects/start_screen.tscn").instantiate()
+	var obj = load("res://Menus/menu_scene.tscn").instantiate()
 	get_parent().add_child(obj)
 	queue_free()
 

@@ -1,5 +1,7 @@
 extends Node
 
+signal music_mute_changed(bool)
+
 var crystals: int
 var bomb_size: int
 var bomb_count: int
@@ -7,12 +9,16 @@ var walk_speed: int
 var remote_type: int
 var wall_walk: bool
 var bomb_walk: bool
+var music_mute: bool:
+	set(val):
+		music_mute = val
+		music_mute_changed.emit(val)
 
 func save_data():
 	var save_game = FileAccess.open("user://data.save", FileAccess.WRITE)
 	var items = {"crystals": crystals, "bomb_size": bomb_size, "bomb_count": bomb_count,
 	 "walk_speed": walk_speed, "remote_type": remote_type, "wall_walk": wall_walk,
-	"bomb_walk": bomb_walk}
+	"bomb_walk": bomb_walk, "music_mute": music_mute}
 
 	var json_string := JSON.stringify(items)
 	save_game.store_line(json_string)
@@ -27,7 +33,7 @@ func load_data():
 	var parse_result := json.parse(json_data)
 	if not parse_result == OK: return
 
-	var data = json.get_data()
+	var data: Dictionary = json.get_data()
 	crystals = data["crystals"]
 	bomb_size = data["bomb_size"]
 	bomb_count = data["bomb_count"]
@@ -35,6 +41,7 @@ func load_data():
 	remote_type = data["remote_type"]
 	wall_walk = data["wall_walk"]
 	bomb_walk = data["bomb_walk"]
+	music_mute = data.get("music_mute", false)
 
 func full_clear():
 	default()
@@ -48,3 +55,4 @@ func default():
 	remote_type = 0
 	wall_walk = false
 	bomb_walk = false
+	music_mute = false

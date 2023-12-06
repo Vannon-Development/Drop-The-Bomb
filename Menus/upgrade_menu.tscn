@@ -38,6 +38,7 @@ offset_right = 903.0
 offset_bottom = 360.0
 
 [node name="Level" type="Label" parent="Bomb Count"]
+custom_minimum_size = Vector2(85, 0)
 layout_mode = 2
 text = "10"
 label_settings = ExtResource("2_vjp07")
@@ -61,11 +62,14 @@ layout_mode = 2
 text = "   "
 label_settings = ExtResource("2_vjp07")
 
-[node name="Crystal" type="TextureRect" parent="Bomb Count"]
+[node name="Crystal Set" type="HBoxContainer" parent="Bomb Count"]
+layout_mode = 2
+
+[node name="Crystal" type="TextureRect" parent="Bomb Count/Crystal Set"]
 layout_mode = 2
 texture = ExtResource("5_t6gbk")
 
-[node name="X" type="Label" parent="Bomb Count"]
+[node name="X" type="Label" parent="Bomb Count/Crystal Set"]
 layout_mode = 2
 text = " X "
 label_settings = ExtResource("2_vjp07")
@@ -83,6 +87,7 @@ offset_right = 903.0
 offset_bottom = 500.0
 
 [node name="Level" type="Label" parent="Bomb Size"]
+custom_minimum_size = Vector2(85, 0)
 layout_mode = 2
 text = "10"
 label_settings = ExtResource("2_vjp07")
@@ -106,11 +111,14 @@ layout_mode = 2
 text = "   "
 label_settings = ExtResource("2_vjp07")
 
-[node name="Crystal" type="TextureRect" parent="Bomb Size"]
+[node name="Crystal Set" type="HBoxContainer" parent="Bomb Size"]
+layout_mode = 2
+
+[node name="Crystal" type="TextureRect" parent="Bomb Size/Crystal Set"]
 layout_mode = 2
 texture = ExtResource("5_t6gbk")
 
-[node name="X" type="Label" parent="Bomb Size"]
+[node name="X" type="Label" parent="Bomb Size/Crystal Set"]
 layout_mode = 2
 text = " X "
 label_settings = ExtResource("2_vjp07")
@@ -128,6 +136,7 @@ offset_right = 903.0
 offset_bottom = 644.0
 
 [node name="Level" type="Label" parent="Speed"]
+custom_minimum_size = Vector2(85, 0)
 layout_mode = 2
 text = "10"
 label_settings = ExtResource("2_vjp07")
@@ -151,11 +160,14 @@ layout_mode = 2
 text = "   "
 label_settings = ExtResource("2_vjp07")
 
-[node name="Crystal" type="TextureRect" parent="Speed"]
+[node name="Crystal Set" type="HBoxContainer" parent="Speed"]
+layout_mode = 2
+
+[node name="Crystal" type="TextureRect" parent="Speed/Crystal Set"]
 layout_mode = 2
 texture = ExtResource("5_t6gbk")
 
-[node name="X" type="Label" parent="Speed"]
+[node name="X" type="Label" parent="Speed/Crystal Set"]
 layout_mode = 2
 text = " X "
 label_settings = ExtResource("2_vjp07")
@@ -201,11 +213,14 @@ layout_mode = 2
 text = "   "
 label_settings = ExtResource("2_vjp07")
 
-[node name="Crystal" type="TextureRect" parent="Remote"]
+[node name="Crystal Set" type="HBoxContainer" parent="Remote"]
+layout_mode = 2
+
+[node name="Crystal" type="TextureRect" parent="Remote/Crystal Set"]
 layout_mode = 2
 texture = ExtResource("5_t6gbk")
 
-[node name="X" type="Label" parent="Remote"]
+[node name="X" type="Label" parent="Remote/Crystal Set"]
 layout_mode = 2
 text = " X "
 label_settings = ExtResource("2_vjp07")
@@ -241,11 +256,14 @@ layout_mode = 2
 text = "   "
 label_settings = ExtResource("2_vjp07")
 
-[node name="Crystal" type="TextureRect" parent="Wall Walk"]
+[node name="Crystal Set" type="HBoxContainer" parent="Wall Walk"]
+layout_mode = 2
+
+[node name="Crystal" type="TextureRect" parent="Wall Walk/Crystal Set"]
 layout_mode = 2
 texture = ExtResource("5_t6gbk")
 
-[node name="X" type="Label" parent="Wall Walk"]
+[node name="X" type="Label" parent="Wall Walk/Crystal Set"]
 layout_mode = 2
 text = " X "
 label_settings = ExtResource("2_vjp07")
@@ -281,11 +299,14 @@ layout_mode = 2
 text = "   "
 label_settings = ExtResource("2_vjp07")
 
-[node name="Crystal" type="TextureRect" parent="Bomb Walk"]
+[node name="Crystal Set" type="HBoxContainer" parent="Bomb Walk"]
+layout_mode = 2
+
+[node name="Crystal" type="TextureRect" parent="Bomb Walk/Crystal Set"]
 layout_mode = 2
 texture = ExtResource("5_t6gbk")
 
-[node name="X" type="Label" parent="Bomb Walk"]
+[node name="X" type="Label" parent="Bomb Walk/Crystal Set"]
 layout_mode = 2
 text = " X "
 label_settings = ExtResource("2_vjp07")
@@ -297,9 +318,9 @@ text = "1000
 label_settings = ExtResource("2_vjp07")
 
 [node name="Back" type="HBoxContainer" parent="."]
-offset_left = 841.0
+offset_left = 794.0
 offset_top = 796.0
-offset_right = 1172.0
+offset_right = 1125.0
 offset_bottom = 879.0
 
 [node name="Icon" type="TextureRect" parent="Back"]
@@ -315,5 +336,27 @@ label_settings = ExtResource("2_vjp07")
 [node name="Text" type="Label" parent="Back"]
 layout_mode = 2
 text = "Back
+"
+label_settings = ExtResource("2_vjp07")
+
+[node name="Crystal Count" type="HBoxContainer" parent="."]
+offset_left = 67.0
+offset_top = 903.0
+offset_right = 584.0
+offset_bottom = 1017.0
+
+[node name="Icon" type="TextureRect" parent="Crystal Count"]
+layout_mode = 2
+texture = ExtResource("5_t6gbk")
+stretch_mode = 2
+
+[node name="Spacer" type="Label" parent="Crystal Count"]
+layout_mode = 2
+text = " X "
+label_settings = ExtResource("2_vjp07")
+
+[node name="Text" type="Label" parent="Crystal Count"]
+layout_mode = 2
+text = "999999
 "
 label_settings = ExtResource("2_vjp07")
