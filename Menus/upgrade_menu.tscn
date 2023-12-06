@@ -1,0 +1,362 @@
+[gd_scene load_steps=20 format=3 uid="uid://c46seupwkejld"]
+
+[ext_resource type="LabelSettings" uid="uid://y3okjbv75e3t" path="res://Menus/Fonts/Heading Font.tres" id="1_ubh63"]
+[ext_resource type="Script" path="res://Menus/upgrade_menu.gd" id="1_v5dfw"]
+[ext_resource type="LabelSettings" uid="uid://drj5uojf8yudv" path="res://Menus/Fonts/Menu Font.tres" id="2_vjp07"]
+[ext_resource type="Texture2D" uid="uid://cafqhocp37d7m" path="res://Menus/Icons/Bomb-Gray-Icon.png" id="3_4miio"]
+[ext_resource type="Texture2D" uid="uid://bauydwnjtbj31" path="res://Menus/Icons/Bomb-Lit-Icon.png" id="4_2vdsb"]
+[ext_resource type="Texture2D" uid="uid://cqrqeoje27fco" path="res://Sprites/Crystal.png" id="5_t6gbk"]
+[ext_resource type="Texture2D" uid="uid://dng6afq0h85fr" path="res://Menus/Icons/Size-Gray-Icon.png" id="6_8opow"]
+[ext_resource type="Texture2D" uid="uid://dcpl6d7xrdonn" path="res://Menus/Icons/Size-Lit-Icon.png" id="7_oa4xs"]
+[ext_resource type="Texture2D" uid="uid://78b35o6kqhar" path="res://Menus/Icons/Speed-Gray-Icon.png" id="9_q5m8c"]
+[ext_resource type="Texture2D" uid="uid://cwpio8eugc52a" path="res://Menus/Icons/Speed-Lit-Icon.png" id="10_fqsdu"]
+[ext_resource type="Texture2D" uid="uid://bkvsa34elo7sr" path="res://Menus/Icons/Remote-All-Gray-Icon.png" id="11_hrdru"]
+[ext_resource type="Texture2D" uid="uid://bt83cy5xba4ap" path="res://Menus/Icons/Remote-All-Lit-Icon.png" id="12_jf74n"]
+[ext_resource type="Texture2D" uid="uid://h06bw38clbwl" path="res://Menus/Icons/Remote-Single-Gray-Icon.png" id="13_fsqkh"]
+[ext_resource type="Texture2D" uid="uid://c1jdjdx22sbao" path="res://Menus/Icons/Remote-Single-Lit-Icon.png" id="14_ethm5"]
+[ext_resource type="Texture2D" uid="uid://pd4lm6w8k0pf" path="res://Menus/Icons/Wall-Walk-Gray-Icon.png" id="15_3hhnl"]
+[ext_resource type="Texture2D" uid="uid://qf4wmbqkwrrm" path="res://Menus/Icons/Wall-Walk-Lit-Icon.png" id="16_crwu1"]
+[ext_resource type="Texture2D" uid="uid://bh38bpc07l516" path="res://Menus/Icons/Bomb-Walk-Gray-Icon.png" id="17_nq2a8"]
+[ext_resource type="Texture2D" uid="uid://nnjpr3r2hsdb" path="res://Menus/Icons/Bomb-Walk-Lit-Icon.png" id="18_ncjs5"]
+[ext_resource type="Texture2D" uid="uid://eahyghcwbb1v" path="res://Menus/Icons/Sprites_0001_Menu-Pointer.png" id="19_h45q5"]
+
+[node name="UpgradeMenu" type="Node2D"]
+script = ExtResource("1_v5dfw")
+
+[node name="Header" type="Label" parent="."]
+offset_top = 80.0
+offset_right = 1920.0
+offset_bottom = 201.0
+text = "Upgrade"
+label_settings = ExtResource("1_ubh63")
+horizontal_alignment = 1
+
+[node name="Bomb Count" type="HBoxContainer" parent="."]
+offset_left = 216.0
+offset_top = 240.0
+offset_right = 903.0
+offset_bottom = 360.0
+
+[node name="Level" type="Label" parent="Bomb Count"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "10"
+label_settings = ExtResource("2_vjp07")
+
+[node name="Padding 1" type="Label" parent="Bomb Count"]
+layout_mode = 2
+text = " "
+label_settings = ExtResource("2_vjp07")
+
+[node name="Icon Unlit" type="TextureRect" parent="Bomb Count"]
+layout_mode = 2
+texture = ExtResource("3_4miio")
+
+[node name="Icon Lit" type="TextureRect" parent="Bomb Count"]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_2vdsb")
+
+[node name="Padding 2" type="Label" parent="Bomb Count"]
+layout_mode = 2
+text = "   "
+label_settings = ExtResource("2_vjp07")
+
+[node name="Crystal Set" type="HBoxContainer" parent="Bomb Count"]
+layout_mode = 2
+
+[node name="Crystal" type="TextureRect" parent="Bomb Count/Crystal Set"]
+layout_mode = 2
+texture = ExtResource("5_t6gbk")
+
+[node name="X" type="Label" parent="Bomb Count/Crystal Set"]
+layout_mode = 2
+text = " X "
+label_settings = ExtResource("2_vjp07")
+
+[node name="Cost" type="Label" parent="Bomb Count"]
+layout_mode = 2
+text = "1000
+"
+label_settings = ExtResource("2_vjp07")
+
+[node name="Bomb Size" type="HBoxContainer" parent="."]
+offset_left = 216.0
+offset_top = 380.0
+offset_right = 903.0
+offset_bottom = 500.0
+
+[node name="Level" type="Label" parent="Bomb Size"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "10"
+label_settings = ExtResource("2_vjp07")
+
+[node name="Padding 1" type="Label" parent="Bomb Size"]
+layout_mode = 2
+text = " "
+label_settings = ExtResource("2_vjp07")
+
+[node name="Icon Unlit" type="TextureRect" parent="Bomb Size"]
+layout_mode = 2
+texture = ExtResource("6_8opow")
+
+[node name="Icon Lit" type="TextureRect" parent="Bomb Size"]
+visible = false
+layout_mode = 2
+texture = ExtResource("7_oa4xs")
+
+[node name="Padding 2" type="Label" parent="Bomb Size"]
+layout_mode = 2
+text = "   "
+label_settings = ExtResource("2_vjp07")
+
+[node name="Crystal Set" type="HBoxContainer" parent="Bomb Size"]
+layout_mode = 2
+
+[node name="Crystal" type="TextureRect" parent="Bomb Size/Crystal Set"]
+layout_mode = 2
+texture = ExtResource("5_t6gbk")
+
+[node name="X" type="Label" parent="Bomb Size/Crystal Set"]
+layout_mode = 2
+text = " X "
+label_settings = ExtResource("2_vjp07")
+
+[node name="Cost" type="Label" parent="Bomb Size"]
+layout_mode = 2
+text = "1000
+"
+label_settings = ExtResource("2_vjp07")
+
+[node name="Speed" type="HBoxContainer" parent="."]
+offset_left = 216.0
+offset_top = 524.0
+offset_right = 903.0
+offset_bottom = 644.0
+
+[node name="Level" type="Label" parent="Speed"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "10"
+label_settings = ExtResource("2_vjp07")
+
+[node name="Padding 1" type="Label" parent="Speed"]
+layout_mode = 2
+text = " "
+label_settings = ExtResource("2_vjp07")
+
+[node name="Icon Unlit" type="TextureRect" parent="Speed"]
+layout_mode = 2
+texture = ExtResource("9_q5m8c")
+
+[node name="Icon Lit" type="TextureRect" parent="Speed"]
+visible = false
+layout_mode = 2
+texture = ExtResource("10_fqsdu")
+
+[node name="Padding 2" type="Label" parent="Speed"]
+layout_mode = 2
+text = "   "
+label_settings = ExtResource("2_vjp07")
+
+[node name="Crystal Set" type="HBoxContainer" parent="Speed"]
+layout_mode = 2
+
+[node name="Crystal" type="TextureRect" parent="Speed/Crystal Set"]
+layout_mode = 2
+texture = ExtResource("5_t6gbk")
+
+[node name="X" type="Label" parent="Speed/Crystal Set"]
+layout_mode = 2
+text = " X "
+label_settings = ExtResource("2_vjp07")
+
+[node name="Cost" type="Label" parent="Speed"]
+layout_mode = 2
+text = "1000
+"
+label_settings = ExtResource("2_vjp07")
+
+[node name="Remote" type="HBoxContainer" parent="."]
+offset_left = 1077.0
+offset_top = 236.0
+offset_right = 1764.0
+offset_bottom = 364.0
+
+[node name="Padding 1" type="Label" parent="Remote"]
+layout_mode = 2
+text = " "
+label_settings = ExtResource("2_vjp07")
+
+[node name="Icon Unlit" type="TextureRect" parent="Remote"]
+layout_mode = 2
+texture = ExtResource("11_hrdru")
+
+[node name="Icon Lit" type="TextureRect" parent="Remote"]
+visible = false
+layout_mode = 2
+texture = ExtResource("12_jf74n")
+
+[node name="Alt Icon Unlit" type="TextureRect" parent="Remote"]
+visible = false
+layout_mode = 2
+texture = ExtResource("13_fsqkh")
+
+[node name="Alt Icon Lit" type="TextureRect" parent="Remote"]
+visible = false
+layout_mode = 2
+texture = ExtResource("14_ethm5")
+
+[node name="Padding 2" type="Label" parent="Remote"]
+layout_mode = 2
+text = "   "
+label_settings = ExtResource("2_vjp07")
+
+[node name="Crystal Set" type="HBoxContainer" parent="Remote"]
+layout_mode = 2
+
+[node name="Crystal" type="TextureRect" parent="Remote/Crystal Set"]
+layout_mode = 2
+texture = ExtResource("5_t6gbk")
+
+[node name="X" type="Label" parent="Remote/Crystal Set"]
+layout_mode = 2
+text = " X "
+label_settings = ExtResource("2_vjp07")
+
+[node name="Cost" type="Label" parent="Remote"]
+layout_mode = 2
+text = "1000
+"
+label_settings = ExtResource("2_vjp07")
+
+[node name="Wall Walk" type="HBoxContainer" parent="."]
+offset_left = 1077.0
+offset_top = 380.0
+offset_right = 1764.0
+offset_bottom = 508.0
+
+[node name="Padding 1" type="Label" parent="Wall Walk"]
+layout_mode = 2
+text = " "
+label_settings = ExtResource("2_vjp07")
+
+[node name="Icon Unlit" type="TextureRect" parent="Wall Walk"]
+layout_mode = 2
+texture = ExtResource("15_3hhnl")
+
+[node name="Icon Lit" type="TextureRect" parent="Wall Walk"]
+visible = false
+layout_mode = 2
+texture = ExtResource("16_crwu1")
+
+[node name="Padding 2" type="Label" parent="Wall Walk"]
+layout_mode = 2
+text = "   "
+label_settings = ExtResource("2_vjp07")
+
+[node name="Crystal Set" type="HBoxContainer" parent="Wall Walk"]
+layout_mode = 2
+
+[node name="Crystal" type="TextureRect" parent="Wall Walk/Crystal Set"]
+layout_mode = 2
+texture = ExtResource("5_t6gbk")
+
+[node name="X" type="Label" parent="Wall Walk/Crystal Set"]
+layout_mode = 2
+text = " X "
+label_settings = ExtResource("2_vjp07")
+
+[node name="Cost" type="Label" parent="Wall Walk"]
+layout_mode = 2
+text = "1000
+"
+label_settings = ExtResource("2_vjp07")
+
+[node name="Bomb Walk" type="HBoxContainer" parent="."]
+offset_left = 1077.0
+offset_top = 524.0
+offset_right = 1764.0
+offset_bottom = 652.0
+
+[node name="Padding 1" type="Label" parent="Bomb Walk"]
+layout_mode = 2
+text = " "
+label_settings = ExtResource("2_vjp07")
+
+[node name="Icon Unlit" type="TextureRect" parent="Bomb Walk"]
+layout_mode = 2
+texture = ExtResource("17_nq2a8")
+
+[node name="Icon Lit" type="TextureRect" parent="Bomb Walk"]
+visible = false
+layout_mode = 2
+texture = ExtResource("18_ncjs5")
+
+[node name="Padding 2" type="Label" parent="Bomb Walk"]
+layout_mode = 2
+text = "   "
+label_settings = ExtResource("2_vjp07")
+
+[node name="Crystal Set" type="HBoxContainer" parent="Bomb Walk"]
+layout_mode = 2
+
+[node name="Crystal" type="TextureRect" parent="Bomb Walk/Crystal Set"]
+layout_mode = 2
+texture = ExtResource("5_t6gbk")
+
+[node name="X" type="Label" parent="Bomb Walk/Crystal Set"]
+layout_mode = 2
+text = " X "
+label_settings = ExtResource("2_vjp07")
+
+[node name="Cost" type="Label" parent="Bomb Walk"]
+layout_mode = 2
+text = "1000
+"
+label_settings = ExtResource("2_vjp07")
+
+[node name="Back" type="HBoxContainer" parent="."]
+offset_left = 794.0
+offset_top = 796.0
+offset_right = 1125.0
+offset_bottom = 879.0
+
+[node name="Icon" type="TextureRect" parent="Back"]
+layout_mode = 2
+texture = ExtResource("19_h45q5")
+stretch_mode = 2
+
+[node name="Spacer" type="Label" parent="Back"]
+layout_mode = 2
+text = "  "
+label_settings = ExtResource("2_vjp07")
+
+[node name="Text" type="Label" parent="Back"]
+layout_mode = 2
+text = "Back
+"
+label_settings = ExtResource("2_vjp07")
+
+[node name="Crystal Count" type="HBoxContainer" parent="."]
+offset_left = 67.0
+offset_top = 903.0
+offset_right = 584.0
+offset_bottom = 1017.0
+
+[node name="Icon" type="TextureRect" parent="Crystal Count"]
+layout_mode = 2
+texture = ExtResource("5_t6gbk")
+stretch_mode = 2
+
+[node name="Spacer" type="Label" parent="Crystal Count"]
+layout_mode = 2
+text = " X "
+label_settings = ExtResource("2_vjp07")
+
+[node name="Text" type="Label" parent="Crystal Count"]
+layout_mode = 2
+text = "999999
+"
+label_settings = ExtResource("2_vjp07")

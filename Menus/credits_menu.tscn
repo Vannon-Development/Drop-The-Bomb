@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyn35j5mbg78y"]
+
+[ext_resource type="Script" path="res://Menus/credits_menu.gd" id="1_5sh5s"]
+[ext_resource type="LabelSettings" uid="uid://y3okjbv75e3t" path="res://Menus/Fonts/Heading Font.tres" id="2_mbo50"]
+[ext_resource type="LabelSettings" uid="uid://drj5uojf8yudv" path="res://Menus/Fonts/Menu Font.tres" id="3_f4a7u"]
+[ext_resource type="Texture2D" uid="uid://eahyghcwbb1v" path="res://Menus/Icons/Sprites_0001_Menu-Pointer.png" id="4_es010"]
+
+[node name="Credits Menu" type="Node2D"]
+script = ExtResource("1_5sh5s")
+
+[node name="Header" type="Label" parent="."]
+offset_top = 80.0
+offset_right = 1920.0
+offset_bottom = 201.0
+text = "Credits"
+label_settings = ExtResource("2_mbo50")
+horizontal_alignment = 1
+
+[node name="Vannon" type="Label" parent="."]
+offset_left = 100.0
+offset_top = 304.0
+offset_right = 1900.0
+offset_bottom = 425.0
+text = "Programming and Art done by Vannon"
+label_settings = ExtResource("3_f4a7u")
+
+[node name="Fig" type="Label" parent="."]
+offset_left = 100.0
+offset_top = 448.0
+offset_right = 1900.0
+offset_bottom = 569.0
+text = "Music Created by Fig"
+label_settings = ExtResource("3_f4a7u")
+
+[node name="Back" type="HBoxContainer" parent="."]
+offset_left = 794.0
+offset_top = 876.0
+offset_right = 1125.0
+offset_bottom = 959.0
+
+[node name="Icon" type="TextureRect" parent="Back"]
+layout_mode = 2
+texture = ExtResource("4_es010")
+stretch_mode = 2
+
+[node name="Spacer" type="Label" parent="Back"]
+layout_mode = 2
+text = "  "
+label_settings = ExtResource("3_f4a7u")
+
+[node name="Text" type="Label" parent="Back"]
+layout_mode = 2
+text = "Back
+"
+label_settings = ExtResource("3_f4a7u")

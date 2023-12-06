@@ -77,48 +77,48 @@ func _return_home():
 	var obj = menu.instantiate()
 	get_parent().add_child(obj)
 	queue_free()
-	
+
 func _update_prices():
 	bomb_label.text = str(Data.bomb_count)
 	size_label.text = str(Data.bomb_size)
 	speed_label.text = str(Data.walk_speed)
-	
+
 	if Data.bomb_count < 10:
 		bomb_price.text = "x " + str(_find_price(Selection.Bomb))
 	else:
 		bomb_price.text = "MAX"
 		bomb_crystal.visible = false
-		
+
 	if Data.bomb_size < 10:
 		size_price.text = "x " + str(_find_price(Selection.Size))
 	else:
 		size_price.text = "MAX"
 		size_crystal.visible = false
-		
+
 	if Data.walk_speed < 9:
 		speed_price.text = "x " + str(_find_price(Selection.Speed))
 	else:
 		speed_price.text = "MAX"
 		speed_crystal.visible = false
-	
+
 	if Data.remote_type < 2:
 		remote_price.text = "x " + str(_find_price(Selection.Remote))
 	else:
 		remote_price.text = "MAX"
 		remote_crystal.visible = false
-	
+
 	if !Data.wall_walk:
 		wall_walk_price.text = "x " + str(_find_price(Selection.Wall))
 	else:
 		wall_walk_price.text = "MAX"
 		wall_walk_crystal.visible = false
-	
+
 	if !Data.bomb_walk:
 		bomb_walk_price.text = "x " + str(_find_price(Selection.Bomb_Walk))
 	else:
 		bomb_walk_price.text = "MAX"
 		bomb_walk_crystal.visible = false
-	
+
 	crystal_count.text = "x " + str(Data.crystals)
 
 func _update_icons():
@@ -137,7 +137,7 @@ func _update_icons():
 	bomb_walk_icon_lit.visible = _selection == Selection.Bomb_Walk
 	bomb_walk_icon_gray.visible = _selection != Selection.Bomb_Walk
 	pass
-	
+
 func _find_price(item: Selection):
 	if item == Selection.Bomb && Data.bomb_count < 10:
 		return prices["Bomb"][Data.bomb_count - 1]
@@ -159,7 +159,7 @@ func _not_enough():
 func _buy_item(sel: Selection):
 	var price = _find_price(sel)
 	if price == 0: return
-	
+
 	Data.crystals -= price
 	if sel == Selection.Bomb: Data.bomb_count += 1
 	elif sel == Selection.Size: Data.bomb_size += 1
@@ -167,12 +167,12 @@ func _buy_item(sel: Selection):
 	elif sel == Selection.Remote: Data.remote_type += 1
 	elif sel == Selection.Wall: Data.wall_walk = true
 	elif sel == Selection.Bomb_Walk: Data.bomb_walk = true
-		
+
 	Data.save_data()
 	_update_prices()
 	_update_icons()
 
-var prices = { 
+var prices = {
 	"Bomb": [10, 20, 40, 80, 200, 400, 1000, 1500, 2000],
 	"Size": [5, 30, 60, 100, 300, 800, 1200, 2000, 4000],
 	"Speed": [25, 50, 100, 200, 400, 800, 1500, 2500],

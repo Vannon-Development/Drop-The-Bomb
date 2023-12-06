@@ -3,14 +3,14 @@
 importer="texture_atlas"
 type="Texture2D"
 uid="uid://dcpl6d7xrdonn"
-path="res://.godot/imported/Size-Lit-Icon.png-07bbb066ded54e55518e87624df8de3e.res"
+path="res://.godot/imported/Size-Lit-Icon.png-5fb3191b6b95231e1cc8c1259c1a1702.res"
 group_file="res://sprites.png"
 valid=true
 [deps]
 
 
-source_file="res://Sprites/Size-Lit-Icon.png"
-dest_files=["res://.godot/imported/Size-Lit-Icon.png-07bbb066ded54e55518e87624df8de3e.res"]
+source_file="res://Menus/Icons/Size-Lit-Icon.png"
+dest_files=["res://.godot/imported/Size-Lit-Icon.png-5fb3191b6b95231e1cc8c1259c1a1702.res"]
 
 [params]
 

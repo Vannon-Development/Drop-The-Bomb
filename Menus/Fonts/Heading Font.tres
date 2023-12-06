@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://y3okjbv75e3t"]
+
+[ext_resource type="FontFile" uid="uid://d4bo37ch4clwo" path="res://OhOkey-vm82O.ttf" id="1_8oyo7"]
+
+[resource]
+font = ExtResource("1_8oyo7")
+font_size = 120
+font_color = Color(0.843137, 0.352941, 0.14902, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)

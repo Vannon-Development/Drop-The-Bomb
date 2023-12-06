@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu2ppaaftipvo"]
+
+[ext_resource type="Script" path="res://Menus/settings_menu.gd" id="1_4g376"]
+[ext_resource type="LabelSettings" uid="uid://y3okjbv75e3t" path="res://Menus/Fonts/Heading Font.tres" id="2_7myg4"]
+[ext_resource type="Texture2D" uid="uid://eahyghcwbb1v" path="res://Menus/Icons/Sprites_0001_Menu-Pointer.png" id="3_cdgpo"]
+[ext_resource type="LabelSettings" uid="uid://drj5uojf8yudv" path="res://Menus/Fonts/Menu Font.tres" id="4_x6etj"]
+
+[node name="SettingsMenu" type="Node2D"]
+script = ExtResource("1_4g376")
+
+[node name="Header" type="Label" parent="."]
+offset_top = 80.0
+offset_right = 1920.0
+offset_bottom = 201.0
+text = "Settings"
+label_settings = ExtResource("2_7myg4")
+horizontal_alignment = 1
+
+[node name="Back" type="HBoxContainer" parent="."]
+offset_left = 794.0
+offset_top = 876.0
+offset_right = 1125.0
+offset_bottom = 959.0
+
+[node name="Icon" type="TextureRect" parent="Back"]
+layout_mode = 2
+texture = ExtResource("3_cdgpo")
+stretch_mode = 2
+
+[node name="Spacer" type="Label" parent="Back"]
+layout_mode = 2
+text = "  "
+label_settings = ExtResource("4_x6etj")
+
+[node name="Text" type="Label" parent="Back"]
+layout_mode = 2
+text = "Back
+"
+label_settings = ExtResource("4_x6etj")
+
+[node name="Music" type="HBoxContainer" parent="."]
+offset_left = 303.0
+offset_top = 329.0
+offset_right = 634.0
+offset_bottom = 412.0
+
+[node name="Icon" type="TextureRect" parent="Music"]
+layout_mode = 2
+texture = ExtResource("3_cdgpo")
+stretch_mode = 2
+
+[node name="Spacer" type="Label" parent="Music"]
+layout_mode = 2
+text = "  "
+label_settings = ExtResource("4_x6etj")
+
+[node name="Text" type="Label" parent="Music"]
+layout_mode = 2
+text = "Music: "
+label_settings = ExtResource("4_x6etj")
+
+[node name="Status" type="Label" parent="Music"]
+layout_mode = 2
+text = "Off"
+label_settings = ExtResource("4_x6etj")
+
+[node name="Erase" type="HBoxContainer" parent="."]
+offset_left = 303.0
+offset_top = 441.0
+offset_right = 634.0
+offset_bottom = 524.0
+
+[node name="Icon" type="TextureRect" parent="Erase"]
+layout_mode = 2
+texture = ExtResource("3_cdgpo")
+stretch_mode = 2
+
+[node name="Spacer" type="Label" parent="Erase"]
+layout_mode = 2
+text = "  "
+label_settings = ExtResource("4_x6etj")
+
+[node name="Text" type="Label" parent="Erase"]
+layout_mode = 2
+text = "Erase Data"
+label_settings = ExtResource("4_x6etj")

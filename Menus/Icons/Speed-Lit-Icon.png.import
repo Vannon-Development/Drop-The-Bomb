@@ -3,14 +3,14 @@
 importer="texture_atlas"
 type="Texture2D"
 uid="uid://cwpio8eugc52a"
-path="res://.godot/imported/Speed-Lit-Icon.png-2078b3058464dad756b4eb4e1c86f1d3.res"
+path="res://.godot/imported/Speed-Lit-Icon.png-59b0dc03ae9d3cdd3d6614d783f0c666.res"
 group_file="res://sprites.png"
 valid=true
 [deps]
 
 
-source_file="res://Sprites/Speed-Lit-Icon.png"
-dest_files=["res://.godot/imported/Speed-Lit-Icon.png-2078b3058464dad756b4eb4e1c86f1d3.res"]
+source_file="res://Menus/Icons/Speed-Lit-Icon.png"
+dest_files=["res://.godot/imported/Speed-Lit-Icon.png-59b0dc03ae9d3cdd3d6614d783f0c666.res"]
 
 [params]
 

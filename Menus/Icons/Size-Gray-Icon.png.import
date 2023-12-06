@@ -3,14 +3,14 @@
 importer="texture_atlas"
 type="Texture2D"
 uid="uid://dng6afq0h85fr"
-path="res://.godot/imported/Size-Gray-Icon.png-2d872cc88544224e86f31a8af99fd595.res"
+path="res://.godot/imported/Size-Gray-Icon.png-f05fb8ff9fde3299aad92622463db60a.res"
 group_file="res://sprites.png"
 valid=true
 [deps]
 
 
-source_file="res://Sprites/Size-Gray-Icon.png"
-dest_files=["res://.godot/imported/Size-Gray-Icon.png-2d872cc88544224e86f31a8af99fd595.res"]
+source_file="res://Menus/Icons/Size-Gray-Icon.png"
+dest_files=["res://.godot/imported/Size-Gray-Icon.png-f05fb8ff9fde3299aad92622463db60a.res"]
 
 [params]
 

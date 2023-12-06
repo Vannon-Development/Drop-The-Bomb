@@ -18,7 +18,7 @@ func _ready():
 func _process(delta):
 	if Time.get_ticks_msec() < _delay: return
 	super._process(delta)
-	
+
 func _start_game():
 	var obj: Node2D = load("res://Objects/game_level.tscn").instantiate()
 	add_sibling(obj)

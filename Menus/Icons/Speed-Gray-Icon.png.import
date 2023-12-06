@@ -3,14 +3,14 @@
 importer="texture_atlas"
 type="Texture2D"
 uid="uid://78b35o6kqhar"
-path="res://.godot/imported/Speed-Gray-Icon.png-8fe290fb9776a0b36600e609d4c2a0c4.res"
+path="res://.godot/imported/Speed-Gray-Icon.png-6ad8d6c5408d50edadd236bb7c1a32d8.res"
 group_file="res://sprites.png"
 valid=true
 [deps]
 
 
-source_file="res://Sprites/Speed-Gray-Icon.png"
-dest_files=["res://.godot/imported/Speed-Gray-Icon.png-8fe290fb9776a0b36600e609d4c2a0c4.res"]
+source_file="res://Menus/Icons/Speed-Gray-Icon.png"
+dest_files=["res://.godot/imported/Speed-Gray-Icon.png-6ad8d6c5408d50edadd236bb7c1a32d8.res"]
 
 [params]
 

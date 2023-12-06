@@ -3,14 +3,14 @@
 importer="texture_atlas"
 type="Texture2D"
 uid="uid://cafqhocp37d7m"
-path="res://.godot/imported/Bomb-Gray-Icon.png-49cd8e5df87e1d9ab8af7ebfcc0cd660.res"
+path="res://.godot/imported/Bomb-Gray-Icon.png-dc3edad790032439f8bb58477f544eb6.res"
 group_file="res://sprites.png"
 valid=true
 [deps]
 
 
-source_file="res://Sprites/Bomb-Gray-Icon.png"
-dest_files=["res://.godot/imported/Bomb-Gray-Icon.png-49cd8e5df87e1d9ab8af7ebfcc0cd660.res"]
+source_file="res://Menus/Icons/Bomb-Gray-Icon.png"
+dest_files=["res://.godot/imported/Bomb-Gray-Icon.png-dc3edad790032439f8bb58477f544eb6.res"]
 
 [params]
 
